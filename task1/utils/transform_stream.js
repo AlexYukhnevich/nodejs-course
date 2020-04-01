@@ -1,6 +1,6 @@
 const { Transform } = require('stream');
 const { encode, decode } = require('./data_encryption');
-const { ENCRYPTION_ACTIONS } = require('../config');
+const { ENCRYPTION } = require('../config');
 
 function encryptChunk(chunk, encrypt, shift) {
   return chunk
@@ -10,10 +10,9 @@ function encryptChunk(chunk, encrypt, shift) {
 }
 
 function transformStream(action, shift) {
-  const encryptionAction =
-    action === ENCRYPTION_ACTIONS.ENCODE ? encode : decode;
+  const encryptionAction = action === ENCRYPTION.ENCODE ? encode : decode;
   const transform = (chunk, encoding, callback) => {
-    const encryptedChunk = encryptChunk(chunk, encryptionAction, shift);
+    const encryptedChunk = `${encryptChunk(chunk, encryptionAction, shift)}\n`;
     callback(null, encryptedChunk);
   };
   return new Transform({ transform });

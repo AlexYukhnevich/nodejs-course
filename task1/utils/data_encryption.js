@@ -5,7 +5,7 @@ const encode = (char, shift) => {
   const shiftPosition = symbolExists + shift;
   const newCharPosition =
     shiftPosition < 0
-      ? (ALPHABET.LENGTH - (symbolExists + shift)) % ALPHABET.LENGTH
+      ? (ALPHABET.LENGTH + (symbolExists + shift)) % ALPHABET.LENGTH
       : (symbolExists + shift) % ALPHABET.LENGTH;
   let updateChar;
 

@@ -1,27 +1,43 @@
 const fs = require('fs');
-const { ERRORS } = require('../config');
+const path = require('path');
+const { ENCRYPTION, ERRORS, ALPHABET } = require('../config');
+const readStdin = require('./read_stdin');
 
-const checkPath = path => fs.promises.access(path);
+const checkPath = filepath =>
+  fs.promises.access(path.join(__dirname, '../', filepath));
 
 const validateCommandLine = async options => {
   const { shift, action, input, output } = options;
 
-  if (input) {
-    try {
-      await checkPath(input);
-    } catch {
-      process.exitCode = 1;
-      throw new Error(ERRORS.INPUT);
-    }
+  if (!Object.values(ENCRYPTION).includes(action)) {
+    process.exitCode = 1;
+    throw new Error(ERRORS.ACTION);
   }
 
-  if (output) {
-    try {
-      await checkPath(output);
-    } catch {
+  if (isNaN(+shift) || shift > ALPHABET.LENGTH || shift < 0) {
+    process.exitCode = 1;
+    throw new Error(ERRORS.SHIFT);
+  }
+
+  if (input) {
+    await checkPath(input).catch(err => {
       process.exitCode = 1;
-      throw new Error(ERRORS.OUTPUT);
-    }
+      throw new Error(err);
+    });
+  }
+
+  if (!input) {
+    await readStdin(options).catch(err => {
+      process.exitCode = 1;
+      throw new Error(err);
+    });
+  }
+
+  if (!output) {
+    await readStdin(options).catch(err => {
+      process.exitCode = 1;
+      throw new Error(err);
+    });
   }
   const params = { action, shift, input, output };
   return params;

@@ -1,10 +1,6 @@
 const { program } = require('commander');
-const stream = require('stream');
-const { promisify } = require('util');
-const { readStream, writeStream } = require('./utils/streams');
-const transformStream = require('./utils/transform_stream');
+const run = require('./run/run');
 const validateCommandLine = require('./utils/validator');
-const pipeline = promisify(stream.pipeline);
 
 program
   .requiredOption('-s, --shift <num>', 'shift sign')
@@ -15,15 +11,11 @@ program
 program.parse(process.argv);
 const { shift, action, input, output } = program;
 
-async function start(params) {
-  const options = await validateCommandLine(params);
-  pipeline(
-    readStream(options.input),
-    transformStream(options.action, options.shift),
-    writeStream(options.output)
-  );
-}
-
-start({ shift, action, input, output })
-  .then(() => console.log('Success'))
-  .catch(console.error);
+(async () => {
+  const options = await validateCommandLine({ shift, action, input, output });
+  if (options) {
+    run(options)
+      .then(() => console.log('Success'))
+      .catch(console.error);
+  }
+})();
