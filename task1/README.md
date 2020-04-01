@@ -22,4 +22,5 @@ CLI tool could accept **4 options** (short alias and full name):
 $ node caesar_cli -a encode -s 7 -i "./input.txt" -o "./output.txt"
 ```
 > input.txt This is secret. Message about "_" symbol!
+
 > output.txt Aopz pz zljyla. Tlzzhnl hivba "_" zftivs!
