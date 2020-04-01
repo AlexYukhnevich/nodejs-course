@@ -1,21 +1,29 @@
+/* eslint-disable node/no-unsupported-features/node-builtins */
 const { program } = require('commander');
-const run = require('./run/run');
-const validateCommandLine = require('./utils/validator');
-
-program
-  .requiredOption('-s, --shift <num>', 'shift sign')
-  .requiredOption('-a, --action [type]', 'action encode or decode')
-  .option('-i, --input <filename>', 'input data')
-  .option('-o, --output <filename>', 'output data');
-
-program.parse(process.argv);
-const { shift, action, input, output } = program;
+const stream = require('stream');
+const { promisify } = require('util');
+const { readStream, writeStream, transformStream } = require('./utils/streams');
+const validateCommandLine = require('./validation/validator');
+const pipeline = promisify(stream.pipeline);
 
 (async () => {
-  const options = await validateCommandLine({ shift, action, input, output });
-  if (options) {
-    run(options)
-      .then(() => console.log('Success'))
-      .catch(console.error);
-  }
+  program
+    .storeOptionsAsProperties(false)
+    .passCommandToAction(false)
+    .option('-s, --shift <num>', 'shift sign')
+    .option('-a, --action [type]', 'action encode or decode')
+    .option('-i, --input <filename>', 'input data')
+    .option('-o, --output <filename>', 'output data')
+    .parse(process.argv);
+  const { input, output, action, shift } = await validateCommandLine(
+    program.opts()
+  );
+
+  pipeline(
+    readStream(input),
+    transformStream(action, shift),
+    writeStream(output)
+  )
+    .then(() => process.stdout.write('Success'))
+    .catch(process.stderr.write);
 })();
