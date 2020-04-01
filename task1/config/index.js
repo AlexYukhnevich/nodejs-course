@@ -1,4 +1,4 @@
-const ENCRYPTION_ACTIONS = {
+const ENCRYPTION = {
   ENCODE: 'encode',
   DECODE: 'decode'
 };
@@ -13,8 +13,11 @@ const ALPHABET = {
 const ERRORS = {
   INPUT: "There is no such file or it's not readable.",
   OUTPUT: "There is no such file or it's not writable.",
-  ACTION: 'Invalid action. Use "encode" or "decode" instead.',
-  SHIFT: 'Invalid shift. Use integer instead.'
+  ACTION: 'Invalid action. Use "encode" or "decode" option.',
+  SHIFT: 'Invalid shift. Use integer.',
+  SHIFT_INVALID_RANGE: `Shift must be more than 0 and less than ${ALPHABET.LENGTH}`
 };
 
-module.exports = { ENCRYPTION_ACTIONS, ALPHABET, ERRORS };
+const COMMAND_LINE_TEXT = 'Enter the text';
+
+module.exports = { ENCRYPTION, ALPHABET, ERRORS, COMMAND_LINE_TEXT };
