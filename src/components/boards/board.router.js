@@ -5,18 +5,19 @@ const {
   getBoard,
   createBoard,
   updateBoard,
-  deleteBoard
+  deleteBoard,
+  validateBody
 } = require('./controllers');
 
 boardRouter
   .route('/')
   .get(getBoards)
-  .post(createBoard);
+  .post(validateBody, createBoard);
 
 boardRouter
   .route('/:boardId')
   .get(getBoard)
-  .put(updateBoard)
+  .put(validateBody, updateBoard)
   .delete(deleteBoard);
 
 module.exports = boardRouter;

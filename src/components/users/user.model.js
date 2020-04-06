@@ -13,13 +13,8 @@ class User {
     this.password = password;
   }
 
-  static sendResponse(user) {
-    const response = Object.assign({}, user);
-    delete response.password;
-    return {
-      message: 'Success',
-      user: response
-    };
+  static sendResponse({ id, name, login }) {
+    return { id, name, login };
   }
 }
 

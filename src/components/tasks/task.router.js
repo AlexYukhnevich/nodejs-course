@@ -4,18 +4,19 @@ const {
   getTask,
   createTask,
   updateTask,
-  deleteTask
+  deleteTask,
+  validateBody
 } = require('./controllers');
 
 taskRouter
   .route('/')
   .get(getTasks)
-  .post(createTask);
+  .post(validateBody, createTask);
 
 taskRouter
   .route('/:taskId')
   .get(getTask)
-  .put(updateTask)
+  .put(validateBody, updateTask)
   .delete(deleteTask);
 
 module.exports = taskRouter;

@@ -4,18 +4,19 @@ const {
   getUser,
   createUser,
   deleteUser,
-  updateUser
+  updateUser,
+  validateBody
 } = require('./controllers');
 
 userRouter
   .route('/')
   .get(getUsers)
-  .post(createUser);
+  .post(validateBody, createUser);
 
 userRouter
   .route('/:userId')
   .get(getUser)
-  .put(updateUser)
+  .put(validateBody, updateUser)
   .delete(deleteUser);
 
 module.exports = userRouter;

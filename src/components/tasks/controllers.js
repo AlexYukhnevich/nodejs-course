@@ -1,79 +1,45 @@
 const taskService = require('./task.service');
 const Task = require('./task.model');
 
+const validateBody = (req, res, next) => {
+  const { title, description, order } = req.body;
+  if (!title || !description || !Number.isInteger(order)) {
+    return res.sendStatus(400);
+  }
+  next();
+};
+
 const getTasks = async (req, res) => {
-  const tasks = await taskService.getAll();
-  console.log(req.params);
-  res.json(tasks.map(Task.sendResponse));
+  const tasks = await taskService.getAll(req.params.boardId);
+  return !tasks.length
+    ? res.sendStatus(404)
+    : res.json(tasks.map(Task.sendResponse));
 };
 
 const getTask = async (req, res) => {
-  const task = await taskService.getTask(req.params.taskId);
-  console.log(task);
-  return task
-    ? res.json(Task.sendResponse(task))
-    : res.status(404).send('Task not found');
+  const task = await taskService.get(req.params.taskId);
+  return task === undefined
+    ? res.sendStatus(404)
+    : res.json(Task.sendResponse(task));
 };
 
 const createTask = async (req, res) => {
-  const { title, order, description, columnId, userId } = req.body;
-  const { boardId } = req.params;
-  const tasks = await taskService.getAll();
-  const newTask = new Task({
-    title,
-    order,
-    description,
-    userId,
-    boardId,
-    columnId
-  });
-  const task = tasks.find(t => t.id === newTask.id);
-  if (!task) {
-    await taskService.createTask(tasks, newTask);
-    return res.json({
-      message: 'Task was added',
-      body: Task.sendResponse(newTask)
-    });
-  }
-  res.status(404).send({ message: 'Error! Task already exists' });
+  const task = await taskService.create(req.params.boardId, req.body);
+  return task === undefined
+    ? res.sendStatus(400)
+    : res.json(Task.sendResponse(task));
 };
 
-// Need to finish this implementation
 const updateTask = async (req, res) => {
-  const { title, order, description, userId, boardId, columnId } = req.body;
-  const tasks = await taskService.getAll();
-  const task = await taskService.getTask(req.params.taskId);
-  if (task) {
-    const updateTaskData = {
-      id: req.params.taskId,
-      title,
-      order,
-      description,
-      userId,
-      boardId,
-      columnId
-    };
-    await taskService.updateTask(tasks, updateTaskData);
-    return res.json({
-      message: 'Task was updated',
-      body: Task.sendResponse(updateTaskData)
-    });
-  }
-  return res.status(404).send('Task not found');
+  const task = await taskService.update(req.params.taskId, req.body);
+  return task === undefined
+    ? res.sendStatus(400)
+    : res.json(Task.sendResponse(task));
 };
 
 const deleteTask = async (req, res) => {
-  const tasks = await taskService.getAll();
-  const task = await taskService.getTask(req.params.taskId);
-  console.log(req.params);
-  if (task) {
-    await taskService.deleteTask(tasks, req.params.taskId);
-    return res.json({
-      message: 'Task was deleted',
-      body: Task.sendResponse(task)
-    });
-  }
-  res.status(404).send('Task not found');
+  const task = await taskService.delete(req.params.taskId);
+  return task === undefined ? res.sendStatus(404) : res.sendStatus(204);
 };
 
 module.exports = {
@@ -81,5 +47,6 @@ module.exports = {
   getTask,
   createTask,
   deleteTask,
-  updateTask
+  updateTask,
+  validateBody
 };

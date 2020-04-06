@@ -1,63 +1,42 @@
-const usersService = require('./user.service');
+const userService = require('./user.service');
 const User = require('./user.model');
 
+const validateBody = (req, res, next) => {
+  const { name, login, password } = req.body;
+  if (!name || !login || !password) {
+    console.error('Invalid request body');
+    return res.sendStatus(400);
+  }
+  next();
+};
+
 const getUsers = async (req, res) => {
-  const users = await usersService.getAll();
-  console.log(users);
-  return users
-    ? res.json(users.map(User.sendResponse))
-    : res.status(401).send('Access token is missing or invalid');
-  // res.json(users.map(User.sendResponse));
+  const users = await userService.getAll();
+  return res.json(users.map(User.sendResponse));
 };
 
 const getUser = async (req, res) => {
-  console.log(req.params);
-  const user = await usersService.getUser(req.params.userId);
-  console.log(user);
-  return user
-    ? res.json(User.sendResponse(user))
-    : res.status(404).send('User not found');
+  const user = await userService.get(req.params.userId);
+  return user === undefined
+    ? res.sendStatus(404)
+    : res.json(User.sendResponse(user));
 };
 
 const createUser = async (req, res) => {
-  const users = await usersService.getAll();
-  const newUser = new User(req.body);
-  const user = users.find(u => u.id === newUser.id);
-  if (!user) {
-    await usersService.createUser(users, newUser);
-    return res.json({
-      message: 'User was added',
-      body: User.sendResponse(newUser)
-    });
-  }
-  res.status(404).send({ message: 'Error! Such user already exists' });
+  const user = await userService.create(req.body);
+  res.json(User.sendResponse(user));
 };
 
 const updateUser = async (req, res) => {
-  const { name, login, password } = req.body;
-  const users = await usersService.getAll();
-  const user = await usersService.getUser(req.params.userId);
-  if (user) {
-    const updateUserData = { id: user.id, name, login, password };
-    await usersService.updateUser(users, updateUserData);
-    return res.json({
-      message: 'User was updated',
-      body: User.sendResponse(updateUserData)
-    });
-  }
-  return res.status(404).send('Such user not found');
+  const user = await userService.update(req.params.userId, req.body);
+  return user === undefined
+    ? res.sendStatus(400)
+    : res.json(User.sendResponse(user));
 };
 
 const deleteUser = async (req, res) => {
-  const users = await usersService.getAll();
-  const user = await usersService.getUser(req.params.userId);
-  if (user) {
-    await usersService.deleteUser(users, req.params.userId);
-    return res.status(204).send('The user has been deleted');
-    // message: 'User was deleted',
-    // body: User.sendResponse(user)
-  }
-  res.status(404).send('Such user not found');
+  const user = await userService.delete(req.params.userId);
+  return user === undefined ? res.sendStatus(404) : res.sendStatus(204);
 };
 
 module.exports = {
@@ -65,5 +44,6 @@ module.exports = {
   getUser,
   createUser,
   deleteUser,
-  updateUser
+  updateUser,
+  validateBody
 };

@@ -4,7 +4,7 @@ class Task {
   constructor({
     id = uuid.v4(),
     title = 'task',
-    order = 0,
+    order,
     description = 'untitled',
     userId,
     boardId,
@@ -18,11 +18,9 @@ class Task {
     this.boardId = boardId;
     this.columnId = columnId;
   }
+
   static sendResponse(task) {
-    return {
-      message: 'Success',
-      task
-    };
+    return task;
   }
 }
 

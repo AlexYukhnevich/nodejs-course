@@ -1,39 +1,29 @@
-/* eslint-disable node/no-unsupported-features/node-builtins */
-const fs = require('fs').promises;
-const path = require('path');
-const usersDatabasePath = path.join(__dirname, 'users.database.json');
-console.log(usersDatabasePath);
+const userRepository = require('./user.memory.repository');
+const TaskRepository = require('../tasks/task.memory.repository');
 
 class UserService {
   async getAll() {
-    const rawUsers = await fs.readFile(usersDatabasePath, 'utf-8');
-    const users = rawUsers ? JSON.parse(rawUsers) : [];
-    return users;
+    return userRepository.getAll();
   }
 
-  async getUser(id) {
-    const rawUsers = await fs.readFile(usersDatabasePath, 'utf-8');
-    const user = JSON.parse(rawUsers).find(u => u.id === id);
+  async get(id) {
+    return await userRepository.get(id);
+  }
+
+  async create(data) {
+    return await userRepository.create(data);
+  }
+
+  async update(id, data) {
+    return await userRepository.update(id, data);
+  }
+
+  async delete(id) {
+    const user = await userRepository.delete(id);
+    if (user) {
+      await TaskRepository.unassignUser(user.id);
+    }
     return user;
-  }
-
-  async createUser(users, newUser) {
-    users.push(newUser);
-    await this.updateUserDatabase(users);
-  }
-
-  async updateUser(users, data) {
-    const updateUsers = users.map(u => (u.id === data.id ? data : u));
-    await this.updateUserDatabase(updateUsers);
-  }
-
-  async deleteUser(users, id) {
-    const updateUsers = users.filter(u => u.id !== id);
-    await this.updateUserDatabase(updateUsers);
-  }
-
-  async updateUserDatabase(updateDatabase) {
-    await fs.writeFile(usersDatabasePath, JSON.stringify(updateDatabase));
   }
 }
 

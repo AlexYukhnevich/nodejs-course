@@ -1,39 +1,30 @@
-/* eslint-disable node/no-unsupported-features/node-builtins */
-const fs = require('fs').promises;
-const path = require('path');
-const boardsDatabasePath = path.join(__dirname, 'boards.database.json');
-console.log(boardsDatabasePath);
+const BoardRepository = require('./board.memory.repository');
+// const TaskRepository = require('../tasks/task.memory.repository');
 
 class BoardService {
   async getAll() {
-    const rawBoards = await fs.readFile(boardsDatabasePath, 'utf-8');
-    const boards = rawBoards ? JSON.parse(rawBoards) : [];
-    return boards;
+    return await BoardRepository.getAll();
   }
 
-  async getBoard(id) {
-    const rawBoards = await fs.readFile(boardsDatabasePath, 'utf-8');
-    const board = JSON.parse(rawBoards).find(b => b.id === id);
+  async get(id) {
+    return await BoardRepository.get(id);
+  }
+
+  async create(data) {
+    return await BoardRepository.create(data);
+  }
+
+  async update(id, data) {
+    return await BoardRepository.update(id, data);
+  }
+
+  async delete(id) {
+    const board = await BoardRepository.delete(id);
+    // if (board) {
+    //   const tasksIds = board.getTasks().map(task => task.id);
+    //   tasksIds.forEach(async taskId => await TaskRepository.delete(taskId));
+    // }
     return board;
-  }
-
-  async createBoard(boards, newBoard) {
-    boards.push(newBoard);
-    await this.updateBoardsDatabase(boards);
-  }
-
-  async updateBoard(boards, data) {
-    const updateBoards = boards.map(b => (b.id === data.id ? data : b));
-    await this.updateBoardsDatabase(updateBoards);
-  }
-
-  async deleteBoard(boards, id) {
-    const updateBoards = boards.filter(b => b.id !== id);
-    await this.updateBoardsDatabase(updateBoards);
-  }
-
-  async updateBoardsDatabase(updateDatabase) {
-    await fs.writeFile(boardsDatabasePath, JSON.stringify(updateDatabase));
   }
 }
 
