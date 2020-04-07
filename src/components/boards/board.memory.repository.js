@@ -6,22 +6,21 @@ const Board = require('./board.model');
 class BoardRepository {
   static async getAll() {
     const db = await fs.readFile(databasePath, 'utf-8');
-    const boards = db ? JSON.parse(db).boards : 'undefined';
-    return boards;
+    return db ? JSON.parse(db) : db;
   }
 
   static async get(id) {
     const db = await fs.readFile(databasePath, 'utf-8');
-    const boards = JSON.parse(db).boards;
-    return Array.isArray(boards) ? boards.find(b => b.id === id) : 'undefined';
+    const boards = JSON.parse(db);
+    return Array.isArray(boards) ? boards.find(b => b.id === id) : boards;
   }
 
   static async create(data) {
     const board = new Board(data);
     const boards = await this.getAll();
-    const db = { boards: boards.concat(board) };
+    const db = Array.isArray(boards) ? [...boards, board] : [board];
     await fs.writeFile(databasePath, JSON.stringify(db));
-    return board ? board : undefined;
+    return board;
   }
 
   static async update(id, data) {
@@ -29,7 +28,9 @@ class BoardRepository {
     const boards = await this.getAll();
     if (board) {
       board = { id, ...data };
-      const db = { boards: boards.map(b => (b.id === board.id ? board : b)) };
+      const db = Array.isArray(boards)
+        ? boards.map(b => (b.id === board.id ? board : b))
+        : [board];
       await fs.writeFile(databasePath, JSON.stringify(db));
     }
     return board;
@@ -39,20 +40,24 @@ class BoardRepository {
     const board = await this.get(id);
     if (board) {
       const boards = await this.getAll();
-      const db = { boards: boards.filter(b => b.id !== board.id) };
+      const db = Array.isArray(boards)
+        ? boards.filter(b => b.id !== board.id)
+        : [board];
       await fs.writeFile(databasePath, JSON.stringify(db));
     }
     return board;
   }
 
   static async addTask(boardId, task) {
-    // const board = await this.get(boardId);
-    // if (board) {
-    //   board.addTask(task);
-    //   const boards = await this.getAll();
-    //   const db = { boards: boards.map(b => (b.id === board.id ? board : b)) };
-    //   await fs.writeFile(databasePath, JSON.stringify(db));
-    // }
+    const board = await this.get(boardId);
+    if (board) {
+      board.addTask(task);
+      const boards = await this.getAll();
+      const db = Array.isArray(boards)
+        ? boards.map(b => (b.id === board.id ? board : b))
+        : [board];
+      await fs.writeFile(databasePath, JSON.stringify(db));
+    }
     return task;
   }
 }

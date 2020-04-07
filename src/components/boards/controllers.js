@@ -12,16 +12,14 @@ const validateBody = (req, res, next) => {
 
 const getBoards = async (req, res) => {
   const boards = await boardService.getAll();
-  return boards === undefined
+  return !boards
     ? res.sendStatus(404)
     : res.json(boards.map(Board.sendResponse));
 };
 
 const getBoard = async (req, res) => {
   const board = await boardService.get(req.params.boardId);
-  return board === undefined
-    ? res.sendStatus(404)
-    : res.json(Board.sendResponse(board));
+  return !board ? res.sendStatus(404) : res.json(Board.sendResponse(board));
 };
 
 const createBoard = async (req, res) => {
@@ -31,14 +29,12 @@ const createBoard = async (req, res) => {
 
 const updateBoard = async (req, res) => {
   const board = boardService.update(req.params.boardId, req.body);
-  return board === undefined
-    ? res.sendStatus(400)
-    : res.json(Board.sendResponse(board));
+  return !board ? res.sendStatus(400) : res.json(Board.sendResponse(board));
 };
 
 const deleteBoard = async (req, res) => {
   const board = await boardService.delete(req.params.boardId);
-  return board === undefined ? res.sendStatus(404) : res.sendStatus(204);
+  return !board ? res.sendStatus(404) : res.sendStatus(204);
 };
 
 module.exports = {

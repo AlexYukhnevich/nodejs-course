@@ -4,7 +4,9 @@ const TaskRepository = require('./task.memory.repository');
 class TaskService {
   async getAll(boardId) {
     const board = await BoardRepository.get(boardId);
-    return board ? board.getTasks() : [];
+    return board !== null && typeof board === 'object' && !Array.isArray(board)
+      ? board.getTasks()
+      : board;
   }
 
   async get(id) {
@@ -13,7 +15,7 @@ class TaskService {
 
   async create(boardId, data) {
     const task = await TaskRepository.create(data);
-    return task ? await BoardRepository.addTask(boardId, task) : undefined;
+    return !task ? task : await BoardRepository.addTask(boardId, task);
   }
 
   async update(id, data) {
