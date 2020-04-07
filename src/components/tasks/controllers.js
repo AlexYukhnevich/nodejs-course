@@ -10,7 +10,7 @@ const validateBody = (req, res, next) => {
 };
 
 const getTasks = async (req, res) => {
-  const tasks = await taskService.getAll(req.params.boardId);
+  const tasks = await taskService.getAll();
   return !tasks ? res.sendStatus(404) : res.json(tasks.map(Task.sendResponse));
 };
 

@@ -50,7 +50,13 @@ class BoardRepository {
 
   static async addTask(boardId, task) {
     const board = await this.get(boardId);
-    if (board) {
+    if (
+      Object.prototype.toString
+        .call(board)
+        .slice(8, -1)
+        .toLowerCase() === 'object' &&
+      board.getTasks
+    ) {
       board.addTask(task);
       const boards = await this.getAll();
       const db = Array.isArray(boards)

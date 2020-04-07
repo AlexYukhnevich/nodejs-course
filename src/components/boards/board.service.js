@@ -1,5 +1,5 @@
 const BoardRepository = require('./board.memory.repository');
-// const TaskRepository = require('../tasks/task.memory.repository');
+const TaskRepository = require('../tasks/task.memory.repository');
 
 class BoardService {
   async getAll() {
@@ -20,13 +20,24 @@ class BoardService {
 
   async delete(id) {
     const board = await BoardRepository.delete(id);
-    // if (board) {
-    //   const tasksIds = board.getTasks().map(task => task.id);
-    //   tasksIds.forEach(async taskId => await TaskRepository.delete(taskId));
-    // }
+    if (board) {
+      const tasksIds =
+        Object.prototype.toString
+          .call(board)
+          .slice(8, -1)
+          .toLowerCase() === 'object' && board.getTasks
+          ? board.getTasks().map(task => task.id)
+          : [];
+      tasksIds.forEach(async taskId => await TaskRepository.delete(taskId));
+    }
     return board;
   }
 }
 
 const boardService = new BoardService();
 module.exports = boardService;
+
+// Object.prototype.toString
+//           .call(board)
+//           .slice(8, -1)
+//           .toLowerCase() === 'object'

@@ -1,5 +1,5 @@
 const userRepository = require('./user.memory.repository');
-// const TaskRepository = require('../tasks/task.memory.repository');
+const TaskRepository = require('../tasks/task.memory.repository');
 
 class UserService {
   async getAll() {
@@ -20,9 +20,9 @@ class UserService {
 
   async delete(id) {
     const user = await userRepository.delete(id);
-    // if (user) {
-    //   await TaskRepository.unassignUser(user.id);
-    // }
+    if (user) {
+      await TaskRepository.unassignUser(user.id);
+    }
     return user;
   }
 }

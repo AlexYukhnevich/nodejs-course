@@ -23,18 +23,18 @@ const getBoard = async (req, res) => {
 };
 
 const createBoard = async (req, res) => {
-  const board = boardService.create(req.body);
+  const board = await boardService.create(req.body);
   res.json(Board.sendResponse(board));
 };
 
 const updateBoard = async (req, res) => {
-  const board = boardService.update(req.params.boardId, req.body);
+  const board = await boardService.update(req.params.boardId, req.body);
   return !board ? res.sendStatus(400) : res.json(Board.sendResponse(board));
 };
 
 const deleteBoard = async (req, res) => {
   const board = await boardService.delete(req.params.boardId);
-  return !board ? res.sendStatus(404) : res.sendStatus(204);
+  return !board ? res.sendStatus(404) : res.sendStatus(200);
 };
 
 module.exports = {
