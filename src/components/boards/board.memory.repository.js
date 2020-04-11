@@ -55,7 +55,7 @@ class BoardRepository {
         .call(board)
         .slice(8, -1)
         .toLowerCase() === 'object' &&
-      board.getTasks
+      typeof board.getTasks === 'function'
     ) {
       board.addTask(task);
       const boards = await this.getAll();

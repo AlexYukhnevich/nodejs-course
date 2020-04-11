@@ -1,15 +1,6 @@
 const userService = require('./user.service');
 const User = require('./user.model');
 
-const validateBody = (req, res, next) => {
-  const { name, login, password } = req.body;
-  if (!name || !login || !password) {
-    console.error('Invalid request body');
-    return res.sendStatus(400);
-  }
-  next();
-};
-
 const getUsers = async (req, res) => {
   const users = await userService.getAll();
   return !users ? res.sendStatus(404) : res.json(users.map(User.sendResponse));
@@ -40,6 +31,5 @@ module.exports = {
   getUser,
   createUser,
   deleteUser,
-  updateUser,
-  validateBody
+  updateUser
 };

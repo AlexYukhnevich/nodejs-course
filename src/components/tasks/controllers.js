@@ -1,14 +1,6 @@
 const taskService = require('./task.service');
 const Task = require('./task.model');
 
-const validateBody = (req, res, next) => {
-  const { title, description, order } = req.body;
-  if (!title || !description || !Number.isInteger(order)) {
-    return res.sendStatus(400);
-  }
-  next();
-};
-
 const getTasks = async (req, res) => {
   const tasks = await taskService.getAll();
   return !tasks ? res.sendStatus(404) : res.json(tasks.map(Task.sendResponse));
@@ -39,6 +31,5 @@ module.exports = {
   getTask,
   createTask,
   deleteTask,
-  updateTask,
-  validateBody
+  updateTask
 };

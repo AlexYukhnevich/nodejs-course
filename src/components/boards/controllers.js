@@ -1,15 +1,6 @@
 const boardService = require('./board.service');
 const Board = require('./board.model');
 
-const validateBody = (req, res, next) => {
-  const { title, columns } = req.body;
-  if (!title || (!columns && !Array.isArray(columns))) {
-    console.error('Invalid request body');
-    return res.sendStatus(400);
-  }
-  next();
-};
-
 const getBoards = async (req, res) => {
   const boards = await boardService.getAll();
   return !boards
@@ -42,6 +33,5 @@ module.exports = {
   getBoard,
   createBoard,
   updateBoard,
-  deleteBoard,
-  validateBody
+  deleteBoard
 };

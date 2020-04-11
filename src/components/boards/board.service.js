@@ -25,7 +25,7 @@ class BoardService {
         Object.prototype.toString
           .call(board)
           .slice(8, -1)
-          .toLowerCase() === 'object' && board.getTasks
+          .toLowerCase() === 'object' && typeof board.getTasks === 'function'
           ? board.getTasks().map(task => task.id)
           : [];
       tasksIds.forEach(async taskId => await TaskRepository.delete(taskId));
@@ -36,8 +36,3 @@ class BoardService {
 
 const boardService = new BoardService();
 module.exports = boardService;
-
-// Object.prototype.toString
-//           .call(board)
-//           .slice(8, -1)
-//           .toLowerCase() === 'object'
