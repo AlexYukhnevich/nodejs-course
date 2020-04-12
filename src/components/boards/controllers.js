@@ -1,40 +1,52 @@
+const { NOT_FOUND, OK, NO_CONTENT } = require('http-status-codes');
 const boardService = require('./board.service');
 const Board = require('./board.model');
 
-const validateBody = (req, res, next) => {
-  const { title, columns } = req.body;
-  if (!title || (!columns && !Array.isArray(columns))) {
-    console.error('Invalid request body');
-    return res.sendStatus(400);
+const getBoards = async (req, res, next) => {
+  const boards = await boardService.getAll();
+  if (!boards) {
+    res.info = NOT_FOUND;
+  } else {
+    res.info = OK;
+    res.payload = boards.map(Board.sendResponse);
   }
   next();
 };
 
-const getBoards = async (req, res) => {
-  const boards = await boardService.getAll();
-  return !boards
-    ? res.sendStatus(404)
-    : res.json(boards.map(Board.sendResponse));
-};
-
-const getBoard = async (req, res) => {
+const getBoard = async (req, res, next) => {
   const board = await boardService.get(req.params.boardId);
-  return !board ? res.sendStatus(404) : res.json(Board.sendResponse(board));
+  if (!board) {
+    res.info = NOT_FOUND;
+  } else {
+    res.info = OK;
+    res.payload = Board.sendResponse(board);
+  }
+  next();
 };
 
-const createBoard = async (req, res) => {
+const createBoard = async (req, res, next) => {
   const board = await boardService.create(req.body);
-  res.json(Board.sendResponse(board));
+  res.info = OK;
+  res.payload = Board.sendResponse(board);
+  next();
 };
 
-const updateBoard = async (req, res) => {
+const updateBoard = async (req, res, next) => {
   const board = await boardService.update(req.params.boardId, req.body);
-  return !board ? res.sendStatus(400) : res.json(Board.sendResponse(board));
+  res.info = OK;
+  res.payload = Board.sendResponse(board);
+  next();
 };
 
-const deleteBoard = async (req, res) => {
+const deleteBoard = async (req, res, next) => {
   const board = await boardService.delete(req.params.boardId);
-  return !board ? res.sendStatus(404) : res.sendStatus(200);
+  if (!board) {
+    res.info = NOT_FOUND;
+  } else {
+    res.info = NO_CONTENT;
+    res.payload = { message: 'Board has been successfully deleted' };
+  }
+  next();
 };
 
 module.exports = {
@@ -42,6 +54,5 @@ module.exports = {
   getBoard,
   createBoard,
   updateBoard,
-  deleteBoard,
-  validateBody
+  deleteBoard
 };

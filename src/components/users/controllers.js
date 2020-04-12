@@ -1,38 +1,52 @@
+const { NOT_FOUND, OK, NO_CONTENT } = require('http-status-codes');
 const userService = require('./user.service');
 const User = require('./user.model');
 
-const validateBody = (req, res, next) => {
-  const { name, login, password } = req.body;
-  if (!name || !login || !password) {
-    console.error('Invalid request body');
-    return res.sendStatus(400);
+const getUsers = async (req, res, next) => {
+  const users = await userService.getAll();
+  if (!users) {
+    res.info = NOT_FOUND;
+  } else {
+    res.info = OK;
+    res.payload = users.map(User.sendResponse);
   }
   next();
 };
 
-const getUsers = async (req, res) => {
-  const users = await userService.getAll();
-  return !users ? res.sendStatus(404) : res.json(users.map(User.sendResponse));
-};
-
-const getUser = async (req, res) => {
+const getUser = async (req, res, next) => {
   const user = await userService.get(req.params.userId);
-  return !user ? res.sendStatus(404) : res.json(User.sendResponse(user));
+  if (!user) {
+    res.info = NOT_FOUND;
+  } else {
+    res.info = OK;
+    res.payload = User.sendResponse(user);
+  }
+  next();
 };
 
-const createUser = async (req, res) => {
+const createUser = async (req, res, next) => {
   const user = await userService.create(req.body);
-  res.json(User.sendResponse(user));
+  res.info = OK;
+  res.payload = User.sendResponse(user);
+  next();
 };
 
-const updateUser = async (req, res) => {
+const updateUser = async (req, res, next) => {
   const user = await userService.update(req.params.userId, req.body);
-  return !user ? res.sendStatus(400) : res.json(User.sendResponse(user));
+  res.info = OK;
+  res.payload = User.sendResponse(user);
+  next();
 };
 
-const deleteUser = async (req, res) => {
+const deleteUser = async (req, res, next) => {
   const user = await userService.delete(req.params.userId);
-  return !user ? res.sendStatus(404) : res.sendStatus(204);
+  if (!user) {
+    res.info = NOT_FOUND;
+  } else {
+    res.info = NO_CONTENT;
+    res.payload = { message: 'User has been successfully deleted' };
+  }
+  next();
 };
 
 module.exports = {
@@ -40,6 +54,5 @@ module.exports = {
   getUser,
   createUser,
   deleteUser,
-  updateUser,
-  validateBody
+  updateUser
 };

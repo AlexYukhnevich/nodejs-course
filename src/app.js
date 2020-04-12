@@ -7,12 +7,19 @@ const appRouter = require('./routes/appRoutes');
 const app = express();
 const swaggerDocument = YAML.load(path.join(__dirname, '../doc/api.yaml'));
 
+const {
+  initialLoggerMiddleware,
+  errorLoggerMiddleware
+} = require('./loggers/logger.middleware.js');
+const errorHandler = require('./errorHandlers/middlewares/errorHandler');
+
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.use('/doc', swaggerUI.serve, swaggerUI.setup(swaggerDocument));
+app.use(initialLoggerMiddleware);
 
+app.use('/doc', swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 app.use(
   '/',
   (req, res, next) => {
@@ -24,5 +31,6 @@ app.use(
   },
   appRouter
 );
+app.use('*', errorHandler, errorLoggerMiddleware);
 
 module.exports = app;

@@ -1,37 +1,52 @@
+const { NOT_FOUND, OK, NO_CONTENT } = require('http-status-codes');
 const taskService = require('./task.service');
 const Task = require('./task.model');
 
-const validateBody = (req, res, next) => {
-  const { title, description, order } = req.body;
-  if (!title || !description || !Number.isInteger(order)) {
-    return res.sendStatus(400);
+const getTasks = async (req, res, next) => {
+  const tasks = await taskService.getAll();
+  if (!tasks) {
+    res.info = NOT_FOUND;
+  } else {
+    res.info = OK;
+    res.payload = tasks.map(Task.sendResponse);
   }
   next();
 };
 
-const getTasks = async (req, res) => {
-  const tasks = await taskService.getAll();
-  return !tasks ? res.sendStatus(404) : res.json(tasks.map(Task.sendResponse));
-};
-
-const getTask = async (req, res) => {
+const getTask = async (req, res, next) => {
   const task = await taskService.get(req.params.taskId);
-  return !task ? res.sendStatus(404) : res.json(Task.sendResponse(task));
+  if (!task) {
+    res.info = NOT_FOUND;
+  } else {
+    res.info = OK;
+    res.payload = Task.sendResponse(task);
+  }
+  next();
 };
 
-const createTask = async (req, res) => {
+const createTask = async (req, res, next) => {
   const task = await taskService.create(req.params.boardId, req.body);
-  return !task ? res.sendStatus(400) : res.json(Task.sendResponse(task));
+  res.info = OK;
+  res.payload = Task.sendResponse(task);
+  next();
 };
 
-const updateTask = async (req, res) => {
+const updateTask = async (req, res, next) => {
   const task = await taskService.update(req.params.taskId, req.body);
-  return !task ? res.sendStatus(400) : res.json(Task.sendResponse(task));
+  res.info = OK;
+  res.payload = Task.sendResponse(task);
+  next();
 };
 
-const deleteTask = async (req, res) => {
+const deleteTask = async (req, res, next) => {
   const task = await taskService.delete(req.params.taskId);
-  return !task ? res.sendStatus(404) : res.sendStatus(204);
+  if (!task) {
+    res.info = NOT_FOUND;
+  } else {
+    res.info = NO_CONTENT;
+    res.payload = { message: 'Task has been successfully deleted' };
+  }
+  next();
 };
 
 module.exports = {
@@ -39,6 +54,5 @@ module.exports = {
   getTask,
   createTask,
   deleteTask,
-  updateTask,
-  validateBody
+  updateTask
 };
