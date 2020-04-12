@@ -7,7 +7,8 @@ const appRouter = require('./routes/appRoutes');
 const app = express();
 const swaggerDocument = YAML.load(path.join(__dirname, '../doc/api.yaml'));
 const loggerMiddleware = require('./loggers/logger.middleware.js');
-const errorHandler = require('./errorHandlers/errorHandler');
+const errorHandler = require('./errorHandlers/middlewares/errorHandler');
+const uncaughtErrors = require('./errorHandlers/uncaughtErrors.js');
 
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -28,5 +29,12 @@ app.use(
   appRouter
 );
 app.use('*', errorHandler, loggerMiddleware);
+
+process.on('uncaughtException', err =>
+  uncaughtErrors(err, 'uncaughtException')
+);
+process.on('unhandledRejection', err =>
+  uncaughtErrors(err, 'unhandledRejection')
+);
 
 module.exports = app;

@@ -1,25 +1,13 @@
-// eslint-disable-next-line node/no-deprecated-api
-// const urlParse = require('url').parse;
 const logger = require('./logger');
 
 const loggerMiddleware = (req, res, next) => {
-  if (req.err) {
-    console.log('CATCHED');
-    const { status, text } = req.err;
-    const msg = status && text ? { status, text } : req.err;
-    logger.log({ level: 'error', message: msg });
+  const { err, url, method, query, body } = req;
+  if (err) {
+    const { status, text } = err;
+    logger.log({ level: 'error', message: { status, text } });
     return;
   }
-  const { url, method, query, body } = req;
-  // const isParams = Object.values(params);
-  // const checkQuery = isParams.length
-  //   ? isParams.join('')
-  //   : urlParse(url).query;
-  // const checkBody = body ? body : {};
-  logger.log({
-    level: 'info',
-    message: { method, url, query, body }
-  });
+  logger.log({ level: 'info', message: { method, url, query, body } });
   next();
 };
 

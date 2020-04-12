@@ -1,5 +1,5 @@
 const boardRouter = require('express').Router({ mergeParams: true });
-const { validateBoard } = require('../../errorHandlers/validationRequest');
+const { validateBoard } = require('../../errorHandlers/middlewares/validation');
 const {
   getBoards,
   getBoard,
