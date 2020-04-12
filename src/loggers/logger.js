@@ -2,7 +2,7 @@ const { createLogger, transports, format } = require('winston');
 const { combine, timestamp, prettyPrint } = format;
 const path = require('path');
 
-const errorPath = path.resolve(__dirname, '../..', 'logs/error.log');
+const errorPath = path.resolve(__dirname, '../..', 'logs/errors.log');
 const infoPath = path.resolve(__dirname, '../..', 'logs/info.log');
 
 const logger = createLogger({
@@ -24,7 +24,8 @@ const logger = createLogger({
       level: 'info',
       format: combine(format.uncolorize())
     })
-  ]
+  ],
+  exceptionHandlers: [new transports.File({ filename: errorPath })]
 });
 
 module.exports = logger;

@@ -1,34 +1,52 @@
+const { NOT_FOUND, OK, NO_CONTENT } = require('http-status-codes');
 const boardService = require('./board.service');
 const Board = require('./board.model');
-const { NOT_FOUND, OK, NO_CONTENT } = require('http-status-codes');
 
 const getBoards = async (req, res, next) => {
   const boards = await boardService.getAll();
-  return !boards
-    ? next(NOT_FOUND)
-    : res.status(OK).json(boards.map(Board.sendResponse));
+  if (!boards) {
+    res.info = NOT_FOUND;
+  } else {
+    res.info = OK;
+    res.payload = boards.map(Board.sendResponse);
+  }
+  next();
 };
 
 const getBoard = async (req, res, next) => {
   const board = await boardService.get(req.params.boardId);
-  return !board
-    ? next(NOT_FOUND)
-    : res.status(OK).json(Board.sendResponse(board));
+  if (!board) {
+    res.info = NOT_FOUND;
+  } else {
+    res.info = OK;
+    res.payload = Board.sendResponse(board);
+  }
+  next();
 };
 
-const createBoard = async (req, res) => {
+const createBoard = async (req, res, next) => {
   const board = await boardService.create(req.body);
-  res.status(OK).json(Board.sendResponse(board));
+  res.info = OK;
+  res.payload = Board.sendResponse(board);
+  next();
 };
 
-const updateBoard = async (req, res) => {
+const updateBoard = async (req, res, next) => {
   const board = await boardService.update(req.params.boardId, req.body);
-  res.status(OK).json(Board.sendResponse(board));
+  res.info = OK;
+  res.payload = Board.sendResponse(board);
+  next();
 };
 
 const deleteBoard = async (req, res, next) => {
   const board = await boardService.delete(req.params.boardId);
-  return !board ? next(NOT_FOUND) : res.status(NO_CONTENT);
+  if (!board) {
+    res.info = NOT_FOUND;
+  } else {
+    res.info = NO_CONTENT;
+    res.payload = { message: 'Board has been successfully deleted' };
+  }
+  next();
 };
 
 module.exports = {

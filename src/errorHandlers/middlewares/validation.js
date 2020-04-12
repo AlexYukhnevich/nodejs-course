@@ -1,4 +1,10 @@
-const { NOT_FOUND, BAD_REQUEST, getStatusText } = require('http-status-codes');
+const {
+  NOT_FOUND,
+  OK,
+  NO_CONTENT,
+  BAD_REQUEST,
+  getStatusText
+} = require('http-status-codes');
 const { ValidationError, ClientError } = require('../errors');
 
 const validateUser = (req, res, next) => {
@@ -25,9 +31,18 @@ const validateBoard = (req, res, next) => {
   next();
 };
 
-const validateClientRequest = (err, req, res, next) => {
-  if (err === NOT_FOUND) {
-    throw new ClientError(NOT_FOUND, getStatusText);
+const validateClientRequest = (req, res, next) => {
+  switch (res.info) {
+    case NOT_FOUND:
+      throw new ClientError(NOT_FOUND, getStatusText);
+    case OK:
+      res.status(OK).json(res.payload);
+      break;
+    case NO_CONTENT:
+      res.status(NO_CONTENT).json(res.payload);
+      break;
+    default:
+      break;
   }
   next();
 };
