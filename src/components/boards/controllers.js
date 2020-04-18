@@ -3,50 +3,54 @@ const boardService = require('./board.service');
 const Board = require('./board.model');
 
 const getBoards = async (req, res, next) => {
-  const boards = await boardService.getAll();
-  if (!boards) {
-    res.info = NOT_FOUND;
-  } else {
-    res.info = OK;
-    res.payload = boards.map(Board.sendResponse);
+  try {
+    const boards = await boardService.getAll();
+    return !boards
+      ? next(NOT_FOUND)
+      : res.status(OK).send(boards.map(Board.sendResponse));
+  } catch (err) {
+    return next(err);
   }
-  next();
 };
 
 const getBoard = async (req, res, next) => {
-  const board = await boardService.get(req.params.boardId);
-  if (!board) {
-    res.info = NOT_FOUND;
-  } else {
-    res.info = OK;
-    res.payload = Board.sendResponse(board);
+  try {
+    const board = await boardService.get(req.params.boardId);
+    return !board
+      ? next(NOT_FOUND)
+      : res.status(OK).send(Board.sendResponse(board));
+  } catch (err) {
+    return next(err);
   }
-  next();
 };
 
 const createBoard = async (req, res, next) => {
-  const board = await boardService.create(req.body);
-  res.info = OK;
-  res.payload = Board.sendResponse(board);
-  next();
+  try {
+    const board = await boardService.create(req.body);
+    res.status(OK).send(Board.sendResponse(board));
+  } catch (err) {
+    return next(err);
+  }
 };
 
 const updateBoard = async (req, res, next) => {
-  const board = await boardService.update(req.params.boardId, req.body);
-  res.info = OK;
-  res.payload = Board.sendResponse(board);
-  next();
+  try {
+    const board = await boardService.update(req.params.boardId, req.body);
+    res.status(OK).send(Board.sendResponse(board));
+  } catch (err) {
+    return next(err);
+  }
 };
 
 const deleteBoard = async (req, res, next) => {
-  const board = await boardService.delete(req.params.boardId);
-  if (!board) {
-    res.info = NOT_FOUND;
-  } else {
-    res.info = NO_CONTENT;
-    res.payload = { message: 'Board has been successfully deleted' };
+  try {
+    const board = await boardService.delete(req.params.boardId);
+    return !board
+      ? next(NOT_FOUND)
+      : res.status(NO_CONTENT).send('Board has been successfully deleted');
+  } catch (err) {
+    return next(err);
   }
-  next();
 };
 
 module.exports = {

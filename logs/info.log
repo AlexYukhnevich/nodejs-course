@@ -1,0 +1,420 @@
+{
+  level: 'info',
+  message: {
+    method: 'GET',
+    url: '/users',
+    query: {},
+    body: { name: 'alexei', login: '5644', password: '+465443' }
+  },
+  timestamp: '2020-04-18 07:55:01'
+}
+{
+  level: 'info',
+  message: {
+    method: 'GET',
+    url: '/users',
+    query: {},
+    body: { name: 'alexei', login: '5644', password: '+465443' }
+  },
+  timestamp: '2020-04-18 07:56:09'
+}
+{
+  level: 'info',
+  message: {
+    method: 'GET',
+    url: '/users/1',
+    query: {},
+    body: { name: 'alexei', login: '5644', password: '+465443' }
+  },
+  timestamp: '2020-04-18 07:56:12'
+}
+{
+  status: 404,
+  message: 'Not Found',
+  level: 'error',
+  timestamp: '2020-04-18 07:56:12'
+}
+{
+  level: 'info',
+  message: { method: 'GET', url: '/users', query: {}, body: {} },
+  timestamp: '2020-04-18 07:59:15'
+}
+{
+  level: 'info',
+  message: {
+    method: 'POST',
+    url: '/users',
+    query: {},
+    body: {
+      name: 'TEST_USER',
+      login: 'test_user',
+      password: 'T35t_P@55w0rd'
+    }
+  },
+  timestamp: '2020-04-18 07:59:15'
+}
+{
+  level: 'info',
+  message: {
+    method: 'GET',
+    url: '/users/7a6e1d11-04ee-4112-b293-360bd6a39823',
+    query: {},
+    body: {}
+  },
+  timestamp: '2020-04-18 07:59:15'
+}
+{
+  level: 'info',
+  message: {
+    method: 'DELETE',
+    url: '/users/7a6e1d11-04ee-4112-b293-360bd6a39823',
+    query: {},
+    body: {}
+  },
+  timestamp: '2020-04-18 07:59:16'
+}
+{
+  level: 'info',
+  message: {
+    method: 'POST',
+    url: '/users',
+    query: {},
+    body: {
+      name: 'TEST_USER',
+      login: 'test_user',
+      password: 'T35t_P@55w0rd'
+    }
+  },
+  timestamp: '2020-04-18 07:59:16'
+}
+{
+  level: 'info',
+  message: {
+    method: 'DELETE',
+    url: '/users/da58024d-1152-4af3-b5fa-25d1cbc03dfb',
+    query: {},
+    body: {}
+  },
+  timestamp: '2020-04-18 07:59:16'
+}
+{
+  level: 'info',
+  message: {
+    method: 'POST',
+    url: '/users',
+    query: {},
+    body: {
+      name: 'TEST_USER',
+      login: 'test_user',
+      password: 'T35t_P@55w0rd'
+    }
+  },
+  timestamp: '2020-04-18 07:59:16'
+}
+{
+  level: 'info',
+  message: {
+    method: 'PUT',
+    url: '/users/a73f6df5-c72f-4447-81c5-d684b17df675',
+    query: {},
+    body: {
+      name: 'Autotest updated TEST_USER',
+      login: 'test_user',
+      password: 'T35t_P@55w0rd',
+      id: 'a73f6df5-c72f-4447-81c5-d684b17df675'
+    }
+  },
+  timestamp: '2020-04-18 07:59:16'
+}
+{
+  level: 'info',
+  message: {
+    method: 'GET',
+    url: '/users/a73f6df5-c72f-4447-81c5-d684b17df675',
+    query: {},
+    body: {}
+  },
+  timestamp: '2020-04-18 07:59:16'
+}
+{
+  level: 'info',
+  message: {
+    method: 'DELETE',
+    url: '/users/a73f6df5-c72f-4447-81c5-d684b17df675',
+    query: {},
+    body: {}
+  },
+  timestamp: '2020-04-18 07:59:16'
+}
+{
+  level: 'info',
+  message: {
+    method: 'POST',
+    url: '/users',
+    query: {},
+    body: {
+      name: 'TEST_USER',
+      login: 'test_user',
+      password: 'T35t_P@55w0rd'
+    }
+  },
+  timestamp: '2020-04-18 07:59:16'
+}
+{
+  level: 'info',
+  message: {
+    method: 'DELETE',
+    url: '/users/30c77d4c-d0da-418e-b1a1-b92c4c7cfcdf',
+    query: {},
+    body: {}
+  },
+  timestamp: '2020-04-18 07:59:16'
+}
+{
+  level: 'info',
+  message: {
+    method: 'POST',
+    url: '/users',
+    query: {},
+    body: {
+      name: 'TEST_USER',
+      login: 'test_user',
+      password: 'T35t_P@55w0rd'
+    }
+  },
+  timestamp: '2020-04-18 07:59:16'
+}
+{
+  level: 'info',
+  message: {
+    method: 'POST',
+    url: '/boards',
+    query: {},
+    body: {
+      title: 'Autotest board',
+      columns: [ { title: 'Backlog', order: 1 }, { title: 'Sprint', order: 2 } ]
+    }
+  },
+  timestamp: '2020-04-18 07:59:16'
+}
+{
+  level: 'info',
+  message: { method: 'GET', url: '/users', query: {}, body: {} },
+  timestamp: '2020-04-18 08:17:01'
+}
+{
+  level: 'info',
+  message: {
+    method: 'POST',
+    url: '/users',
+    query: {},
+    body: {
+      name: 'TEST_USER',
+      login: 'test_user',
+      password: 'T35t_P@55w0rd'
+    }
+  },
+  timestamp: '2020-04-18 08:17:01'
+}
+{
+  level: 'info',
+  message: {
+    method: 'GET',
+    url: '/users/c697e43b-8b6c-47dd-8c91-d1c09e797876',
+    query: {},
+    body: {}
+  },
+  timestamp: '2020-04-18 08:17:01'
+}
+{
+  level: 'info',
+  message: {
+    method: 'DELETE',
+    url: '/users/c697e43b-8b6c-47dd-8c91-d1c09e797876',
+    query: {},
+    body: {}
+  },
+  timestamp: '2020-04-18 08:17:01'
+}
+{
+  level: 'info',
+  message: {
+    method: 'POST',
+    url: '/users',
+    query: {},
+    body: {
+      name: 'TEST_USER',
+      login: 'test_user',
+      password: 'T35t_P@55w0rd'
+    }
+  },
+  timestamp: '2020-04-18 08:17:01'
+}
+{
+  level: 'info',
+  message: {
+    method: 'DELETE',
+    url: '/users/acceefdd-6f4b-4b80-97e5-3ecf83ab859a',
+    query: {},
+    body: {}
+  },
+  timestamp: '2020-04-18 08:17:01'
+}
+{
+  level: 'info',
+  message: {
+    method: 'POST',
+    url: '/users',
+    query: {},
+    body: {
+      name: 'TEST_USER',
+      login: 'test_user',
+      password: 'T35t_P@55w0rd'
+    }
+  },
+  timestamp: '2020-04-18 08:17:01'
+}
+{
+  level: 'info',
+  message: {
+    method: 'PUT',
+    url: '/users/b5c0d04f-8a77-4e46-bc60-3b94ba3d810c',
+    query: {},
+    body: {
+      name: 'Autotest updated TEST_USER',
+      login: 'test_user',
+      password: 'T35t_P@55w0rd',
+      id: 'b5c0d04f-8a77-4e46-bc60-3b94ba3d810c'
+    }
+  },
+  timestamp: '2020-04-18 08:17:01'
+}
+{
+  level: 'info',
+  message: {
+    method: 'GET',
+    url: '/users/b5c0d04f-8a77-4e46-bc60-3b94ba3d810c',
+    query: {},
+    body: {}
+  },
+  timestamp: '2020-04-18 08:17:01'
+}
+{
+  level: 'info',
+  message: {
+    method: 'DELETE',
+    url: '/users/b5c0d04f-8a77-4e46-bc60-3b94ba3d810c',
+    query: {},
+    body: {}
+  },
+  timestamp: '2020-04-18 08:17:01'
+}
+{
+  level: 'info',
+  message: {
+    method: 'POST',
+    url: '/users',
+    query: {},
+    body: {
+      name: 'TEST_USER',
+      login: 'test_user',
+      password: 'T35t_P@55w0rd'
+    }
+  },
+  timestamp: '2020-04-18 08:17:01'
+}
+{
+  level: 'info',
+  message: {
+    method: 'DELETE',
+    url: '/users/cbfd968d-d8b2-46c5-a81f-f641898f6283',
+    query: {},
+    body: {}
+  },
+  timestamp: '2020-04-18 08:17:01'
+}
+{
+  level: 'info',
+  message: {
+    method: 'POST',
+    url: '/users',
+    query: {},
+    body: {
+      name: 'TEST_USER',
+      login: 'test_user',
+      password: 'T35t_P@55w0rd'
+    }
+  },
+  timestamp: '2020-04-18 08:17:01'
+}
+{
+  level: 'info',
+  message: {
+    method: 'POST',
+    url: '/boards',
+    query: {},
+    body: {
+      title: 'Autotest board',
+      columns: [ { title: 'Backlog', order: 1 }, { title: 'Sprint', order: 2 } ]
+    }
+  },
+  timestamp: '2020-04-18 08:17:01'
+}
+{
+  level: 'info',
+  message: {
+    method: 'POST',
+    url: '/boards/4e4ea25e-f8df-4bbf-b62e-9a85717e3ce8/tasks',
+    query: {},
+    body: {
+      title: 'Task #1',
+      order: 1,
+      description: 'Lorem ipsum',
+      userId: '603e10b1-d16c-4f97-bcfb-3de220899b69',
+      boardId: '4e4ea25e-f8df-4bbf-b62e-9a85717e3ce8'
+    }
+  },
+  timestamp: '2020-04-18 08:17:01'
+}
+{
+  level: 'info',
+  message: {
+    method: 'POST',
+    url: '/boards/4e4ea25e-f8df-4bbf-b62e-9a85717e3ce8/tasks',
+    query: {},
+    body: {
+      title: 'Task #2',
+      order: 2,
+      description: 'Lorem ipsum',
+      userId: '603e10b1-d16c-4f97-bcfb-3de220899b69',
+      boardId: '4e4ea25e-f8df-4bbf-b62e-9a85717e3ce8'
+    }
+  },
+  timestamp: '2020-04-18 08:17:01'
+}
+{
+  level: 'info',
+  message: {
+    method: 'DELETE',
+    url: '/users/603e10b1-d16c-4f97-bcfb-3de220899b69',
+    query: {},
+    body: {}
+  },
+  timestamp: '2020-04-18 08:17:01'
+}
+{
+  level: 'info',
+  message: {
+    method: 'GET',
+    url: '/boards/4e4ea25e-f8df-4bbf-b62e-9a85717e3ce8/tasks/55f9a882-31d4-407d-bcee-fb3edfad40fd',
+    query: {},
+    body: {}
+  },
+  timestamp: '2020-04-18 08:17:01'
+}
+{
+  status: 404,
+  message: 'Not Found',
+  level: 'error',
+  timestamp: '2020-04-18 08:17:01'
+}

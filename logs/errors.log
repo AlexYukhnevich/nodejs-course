@@ -1,0 +1,12 @@
+{
+  status: 404,
+  message: 'Not Found',
+  level: 'error',
+  timestamp: '2020-04-18 07:56:12'
+}
+{
+  status: 404,
+  message: 'Not Found',
+  level: 'error',
+  timestamp: '2020-04-18 08:17:01'
+}

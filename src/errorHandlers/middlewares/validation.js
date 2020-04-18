@@ -1,55 +1,49 @@
 const {
   NOT_FOUND,
-  OK,
-  NO_CONTENT,
   BAD_REQUEST,
+  INTERNAL_SERVER_ERROR,
   getStatusText
 } = require('http-status-codes');
-const { ValidationError, ClientError } = require('../errors');
+const { ClientError, ServerError } = require('../errors');
 
 const validateUser = (req, res, next) => {
   const { name, login, password } = req.body;
-  if (!name || !login || !password) {
-    throw new ValidationError(BAD_REQUEST, getStatusText);
-  }
-  next();
+  return !name || !login || !password ? next(BAD_REQUEST) : next();
 };
 
 const validateTask = (req, res, next) => {
   const { title, description, order } = req.body;
-  if (!title || !description || !Number.isInteger(order)) {
-    throw new ValidationError(BAD_REQUEST, getStatusText);
-  }
-  next();
+  return !title || !description || !Number.isInteger(order)
+    ? next(BAD_REQUEST)
+    : next();
 };
 
 const validateBoard = (req, res, next) => {
   const { title, columns } = req.body;
-  if (!title || (!columns && !Array.isArray(columns))) {
-    throw new ValidationError(BAD_REQUEST, getStatusText);
-  }
-  next();
+  return !title || (!columns && !Array.isArray(columns))
+    ? next(BAD_REQUEST)
+    : next();
 };
 
-const validateClientRequest = (req, res, next) => {
-  switch (res.info) {
+const validateRequest = (err, req, res, next) => {
+  let error;
+  switch (err) {
     case NOT_FOUND:
-      throw new ClientError(NOT_FOUND, getStatusText);
-    case OK:
-      res.status(OK).json(res.payload);
+      error = new ClientError(NOT_FOUND, getStatusText);
       break;
-    case NO_CONTENT:
-      res.status(NO_CONTENT).json(res.payload);
+    case BAD_REQUEST:
+      error = new ClientError(BAD_REQUEST, getStatusText);
       break;
     default:
+      error = new ServerError(INTERNAL_SERVER_ERROR, getStatusText);
       break;
   }
-  next();
+  next(error);
 };
 
 module.exports = {
   validateUser,
   validateTask,
   validateBoard,
-  validateClientRequest
+  validateRequest
 };

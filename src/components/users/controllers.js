@@ -3,50 +3,54 @@ const userService = require('./user.service');
 const User = require('./user.model');
 
 const getUsers = async (req, res, next) => {
-  const users = await userService.getAll();
-  if (!users) {
-    res.info = NOT_FOUND;
-  } else {
-    res.info = OK;
-    res.payload = users.map(User.sendResponse);
+  try {
+    const users = await userService.getAll();
+    return !users
+      ? next(NOT_FOUND)
+      : res.status(OK).send(users.map(User.sendResponse));
+  } catch (err) {
+    return next(err);
   }
-  next();
 };
 
 const getUser = async (req, res, next) => {
-  const user = await userService.get(req.params.userId);
-  if (!user) {
-    res.info = NOT_FOUND;
-  } else {
-    res.info = OK;
-    res.payload = User.sendResponse(user);
+  try {
+    const user = await userService.get(req.params.userId);
+    return !user
+      ? next(NOT_FOUND)
+      : res.status(OK).send(User.sendResponse(user));
+  } catch (err) {
+    return next(err);
   }
-  next();
 };
 
 const createUser = async (req, res, next) => {
-  const user = await userService.create(req.body);
-  res.info = OK;
-  res.payload = User.sendResponse(user);
-  next();
+  try {
+    const user = await userService.create(req.body);
+    res.status(OK).send(User.sendResponse(user));
+  } catch (err) {
+    return next(err);
+  }
 };
 
 const updateUser = async (req, res, next) => {
-  const user = await userService.update(req.params.userId, req.body);
-  res.info = OK;
-  res.payload = User.sendResponse(user);
-  next();
+  try {
+    const user = await userService.update(req.params.userId, req.body);
+    res.status(OK).send(User.sendResponse(user));
+  } catch (err) {
+    return next(err);
+  }
 };
 
 const deleteUser = async (req, res, next) => {
-  const user = await userService.delete(req.params.userId);
-  if (!user) {
-    res.info = NOT_FOUND;
-  } else {
-    res.info = NO_CONTENT;
-    res.payload = { message: 'User has been successfully deleted' };
+  try {
+    const user = await userService.delete(req.params.userId);
+    return !user
+      ? next(NOT_FOUND)
+      : res.status(NO_CONTENT).send('User has been successfully deleted');
+  } catch (err) {
+    return next(err);
   }
-  next();
 };
 
 module.exports = {

@@ -1,12 +1,9 @@
-const { INTERNAL_SERVER_ERROR, getStatusText } = require('http-status-codes');
-const { ValidationError, ClientError, ServerError } = require('../errors');
+const logger = require('../../loggers/logger');
 
 const errorHandler = (err, req, res, next) => {
-  if (!(err instanceof ValidationError) && !(err instanceof ClientError)) {
-    err = new ServerError(INTERNAL_SERVER_ERROR, getStatusText);
-  }
-  res.status(err.status).send(err.text);
-  req.err = err;
+  const { status, message } = err;
+  res.status(status).send(message);
+  logger.error({ status, message });
   next();
 };
 
