@@ -16,10 +16,6 @@ const getBoards = async (req, res, next) => {
 const getBoard = async (req, res, next) => {
   try {
     const board = await boardService.get(req.params.boardId);
-    if (!board) {
-      console.log('CATCHED');
-      console.log(board);
-    }
     return !board
       ? next(NOT_FOUND)
       : res.status(OK).send(Board.sendResponse(board));

@@ -9,4 +9,4 @@ const initialLoggerMiddleware = (req, res, next) => {
   next();
 };
 
-module.exports = { initialLoggerMiddleware };
+module.exports = initialLoggerMiddleware;

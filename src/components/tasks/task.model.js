@@ -1,6 +1,5 @@
 const uuid = require('uuid');
-const mongoose = require('mongoose');
-const { Schema, model } = mongoose;
+const { Schema, model } = require('mongoose');
 
 const taskSchema = new Schema(
   {
@@ -18,30 +17,24 @@ const taskSchema = new Schema(
   { versionKey: false }
 );
 
-taskSchema.statics.sendResponse = task => task;
-const Task = model('Task', taskSchema);
-// class Task {
-//   constructor({
-//     id = uuid(),
-//     title = 'task',
-//     order,
-//     description = 'untitled',
-//     userId,
-//     boardId,
-//     columnId
-//   }) {
-//     this.id = id;
-//     this.title = title;
-//     this.order = order;
-//     this.description = description;
-//     this.userId = userId;
-//     this.boardId = boardId;
-//     this.columnId = columnId;
-//   }
+taskSchema.statics.sendResponse = ({
+  id,
+  title,
+  order,
+  description,
+  userId,
+  boardId,
+  columnId
+}) => ({
+  id,
+  title,
+  order,
+  description,
+  userId,
+  boardId,
+  columnId
+});
 
-//   static sendResponse(task) {
-//     return task;
-//   }
-// }
+const Task = model('Task', taskSchema);
 
 module.exports = Task;

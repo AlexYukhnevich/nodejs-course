@@ -1,36 +1,33 @@
 const Task = require('./task.model');
 
 class TaskDBRepository {
-  static async getAll() {
-    return await Task.find({});
+  static async getAll(boardId) {
+    return await Task.find({ boardId });
   }
 
   static async get(id) {
-    return await Task.findById({ _id: id });
+    return await Task.findById(id);
   }
 
   static async create(boardId, data) {
-    return await Task.create({ _id: boardId }, data);
-  }
-
-  static async getBoardByProps(props) {
-    return await Task.find(props);
+    return await Task.create({ ...data, boardId });
   }
 
   static async update(id, data) {
-    return await Task.updateOne({ _id: id }, data);
+    return await Task.findByIdAndUpdate(id, data, { new: true });
   }
 
   static async delete(id) {
-    return await Task.deleteOne({ _id: id });
+    return await Task.findByIdAndDelete(id);
   }
 
-  //   static async unassignUser(userId) {
-  //     const userTasks = await Task.find({ id: userId });
-  //     userTasks.forEach(task => (task.userId = null));
-  //     return userTasks;
-  //   }
+  static async deleteTasks(boardId) {
+    return await Task.deleteMany({ boardId });
+  }
+
+  static async unassignUser(userId) {
+    return await Task.updateMany({ userId }, { userId: null });
+  }
 }
 
-// eslint-disable-next-line prettier/prettier
 module.exports = TaskDBRepository;

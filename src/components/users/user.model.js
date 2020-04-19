@@ -1,8 +1,6 @@
 const uuid = require('uuid');
-const mongoose = require('mongoose');
-const { Schema, model } = mongoose;
+const { Schema, model } = require('mongoose');
 
-// Created Schema
 const userSchema = new Schema(
   {
     name: String,
@@ -22,25 +20,6 @@ userSchema.statics.sendResponse = ({ id, name, login }) => ({
   login
 });
 
-// Created Model
 const User = model('User', userSchema);
-
-// class User {
-//   constructor({
-//     id = uuid(),
-//     name = 'USER',
-//     login = 'user',
-//     password = 'template_passw0rd'
-//   }) {
-//     this.id = id;
-//     this.name = name;
-//     this.login = login;
-//     this.password = password;
-//   }
-
-//   static sendResponse({ id, name, login }) {
-//     return { id, name, login };
-//   }
-// }
 
 module.exports = User;

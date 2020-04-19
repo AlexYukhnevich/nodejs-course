@@ -1,5 +1,5 @@
 const uncaughtErrors = require('./errorHandlers/uncaughtErrors.js');
-const { connectToDB } = require('./db/db.client');
+const connectToDB = require('./db/db.client');
 const { PORT } = require('./common/config');
 const app = require('./app');
 

@@ -4,7 +4,7 @@ const Task = require('./task.model');
 
 const getTasks = async (req, res, next) => {
   try {
-    const tasks = await taskService.getAll();
+    const tasks = await taskService.getAll(req.params.boardId);
     return !tasks
       ? next(NOT_FOUND)
       : res.status(OK).send(tasks.map(Task.sendResponse));
@@ -26,15 +26,7 @@ const getTask = async (req, res, next) => {
 
 const createTask = async (req, res, next) => {
   try {
-    const { boardId } = req.params;
-    const { title, order, description, userId, columnId } = req.body;
-    const task = await taskService.create(boardId, {
-      title,
-      order,
-      description,
-      userId,
-      columnId
-    });
+    const task = await taskService.create(req.params.boardId, req.body);
     res.status(OK).send(Task.sendResponse(task));
   } catch (err) {
     return next(err);

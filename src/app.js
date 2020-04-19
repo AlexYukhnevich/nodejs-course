@@ -7,7 +7,7 @@ const appRouter = require('./routes/appRoutes');
 const app = express();
 const swaggerDocument = YAML.load(path.join(__dirname, '../doc/api.yaml'));
 
-const { initialLoggerMiddleware } = require('./loggers/logger.middleware.js');
+const initialLoggerMiddleware = require('./loggers/logger.middleware.js');
 const errorHandler = require('./errorHandlers/middlewares/errorHandler');
 
 app.use(express.json());

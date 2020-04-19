@@ -1,29 +1,29 @@
 const User = require('./user.model');
-// const users = require('../../db/db.client').users;
+const TaskDBRepository = require('../tasks/task.db.repository');
 
 class UsersDBRepository {
   static async getAll() {
-    return await User.find({});
+    return await User.find();
   }
 
   static async get(id) {
-    return await User.findById({ _id: id });
+    return await User.findById(id);
   }
 
   static async create(data) {
     return await User.create(data);
   }
 
-  static async getUserByProps(props) {
-    return await User.find(props);
-  }
-
   static async update(id, data) {
-    return await User.updateOne({ _id: id }, data);
+    return await User.findByIdAndUpdate(id, data, { new: true });
   }
 
   static async delete(id) {
-    return await User.deleteOne({ _id: id });
+    const user = await User.findOneAndDelete(id);
+    if (user) {
+      await TaskDBRepository.unassignUser(id);
+    }
+    return user;
   }
 }
 
