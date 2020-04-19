@@ -418,3 +418,1333 @@
   level: 'error',
   timestamp: '2020-04-18 08:17:01'
 }
+{
+  level: 'info',
+  message: { method: 'GET', url: '/users', query: {}, body: {} },
+  timestamp: '2020-04-18 09:26:20'
+}
+{
+  status: 500,
+  message: 'Server Error',
+  level: 'error',
+  timestamp: '2020-04-18 09:26:20'
+}
+{
+  level: 'info',
+  message: {
+    method: 'POST',
+    url: '/users',
+    query: {},
+    body: {
+      name: 'TEST_USER',
+      login: 'test_user',
+      password: 'T35t_P@55w0rd'
+    }
+  },
+  timestamp: '2020-04-18 09:26:20'
+}
+{
+  status: 500,
+  message: 'Server Error',
+  level: 'error',
+  timestamp: '2020-04-18 09:26:20'
+}
+{
+  level: 'info',
+  message: {
+    method: 'POST',
+    url: '/users',
+    query: {},
+    body: {
+      name: 'TEST_USER',
+      login: 'test_user',
+      password: 'T35t_P@55w0rd'
+    }
+  },
+  timestamp: '2020-04-18 09:26:20'
+}
+{
+  status: 500,
+  message: 'Server Error',
+  level: 'error',
+  timestamp: '2020-04-18 09:26:20'
+}
+{
+  level: 'info',
+  message: {
+    method: 'POST',
+    url: '/users',
+    query: {},
+    body: {
+      name: 'TEST_USER',
+      login: 'test_user',
+      password: 'T35t_P@55w0rd'
+    }
+  },
+  timestamp: '2020-04-18 09:26:20'
+}
+{
+  status: 500,
+  message: 'Server Error',
+  level: 'error',
+  timestamp: '2020-04-18 09:26:20'
+}
+{
+  level: 'info',
+  message: {
+    method: 'PUT',
+    url: '/users/undefined',
+    query: {},
+    body: {
+      name: 'Autotest updated TEST_USER',
+      login: 'test_user',
+      password: 'T35t_P@55w0rd'
+    }
+  },
+  timestamp: '2020-04-18 09:26:20'
+}
+{
+  status: 500,
+  message: 'Server Error',
+  level: 'error',
+  timestamp: '2020-04-18 09:26:20'
+}
+{
+  level: 'info',
+  message: {
+    method: 'POST',
+    url: '/users',
+    query: {},
+    body: {
+      name: 'TEST_USER',
+      login: 'test_user',
+      password: 'T35t_P@55w0rd'
+    }
+  },
+  timestamp: '2020-04-18 09:26:20'
+}
+{
+  status: 500,
+  message: 'Server Error',
+  level: 'error',
+  timestamp: '2020-04-18 09:26:20'
+}
+{
+  level: 'info',
+  message: { method: 'DELETE', url: '/users/undefined', query: {}, body: {} },
+  timestamp: '2020-04-18 09:26:20'
+}
+{
+  status: 500,
+  message: 'Server Error',
+  level: 'error',
+  timestamp: '2020-04-18 09:26:20'
+}
+{
+  level: 'info',
+  message: {
+    method: 'POST',
+    url: '/users',
+    query: {},
+    body: {
+      name: 'TEST_USER',
+      login: 'test_user',
+      password: 'T35t_P@55w0rd'
+    }
+  },
+  timestamp: '2020-04-18 09:26:20'
+}
+{
+  status: 500,
+  message: 'Server Error',
+  level: 'error',
+  timestamp: '2020-04-18 09:26:20'
+}
+{
+  type: 'uncaughtException',
+  message: 'users.forEach9 is not a function',
+  level: 'error',
+  timestamp: '2020-04-18 09:59:55'
+}
+{
+  type: 'uncaughtException',
+  message: 'users.forEach9 is not a function',
+  level: 'error',
+  timestamp: '2020-04-18 10:01:23'
+}
+{
+  type: 'uncaughtException',
+  message: 'users.forEach9 is not a function',
+  level: 'error',
+  timestamp: '2020-04-18 10:02:22'
+}
+{
+  type: 'uncaughtException',
+  message: 'users.forEach9 is not a function',
+  level: 'error',
+  timestamp: '2020-04-18 10:03:29'
+}
+{
+  level: 'info',
+  message: { method: 'GET', url: '/users', query: {}, body: {} },
+  timestamp: '2020-04-18 11:14:36'
+}
+{
+  status: 500,
+  message: 'Server Error',
+  level: 'error',
+  timestamp: '2020-04-18 11:14:36'
+}
+{
+  level: 'info',
+  message: {
+    method: 'POST',
+    url: '/users',
+    query: {},
+    body: {
+      name: 'TEST_USER',
+      login: 'test_user',
+      password: 'T35t_P@55w0rd'
+    }
+  },
+  timestamp: '2020-04-18 11:14:36'
+}
+{
+  level: 'info',
+  message: {
+    method: 'GET',
+    url: '/users/043d3d65-c1ec-4ce9-bd07-5cc24d5d890c',
+    query: {},
+    body: {}
+  },
+  timestamp: '2020-04-18 11:14:36'
+}
+{
+  status: 500,
+  message: 'Server Error',
+  level: 'error',
+  timestamp: '2020-04-18 11:14:36'
+}
+{
+  level: 'info',
+  message: {
+    method: 'POST',
+    url: '/users',
+    query: {},
+    body: {
+      name: 'TEST_USER',
+      login: 'test_user',
+      password: 'T35t_P@55w0rd'
+    }
+  },
+  timestamp: '2020-04-18 11:14:36'
+}
+{
+  level: 'info',
+  message: {
+    method: 'DELETE',
+    url: '/users/053e7014-604d-4f50-84ac-7c045b70dc9b',
+    query: {},
+    body: {}
+  },
+  timestamp: '2020-04-18 11:14:36'
+}
+{
+  status: 500,
+  message: 'Server Error',
+  level: 'error',
+  timestamp: '2020-04-18 11:14:36'
+}
+{
+  level: 'info',
+  message: {
+    method: 'POST',
+    url: '/users',
+    query: {},
+    body: {
+      name: 'TEST_USER',
+      login: 'test_user',
+      password: 'T35t_P@55w0rd'
+    }
+  },
+  timestamp: '2020-04-18 11:14:36'
+}
+{
+  level: 'info',
+  message: {
+    method: 'PUT',
+    url: '/users/318d0bc7-74ff-4302-b876-466b4813ebe8',
+    query: {},
+    body: {
+      name: 'Autotest updated TEST_USER',
+      login: 'test_user',
+      password: 'T35t_P@55w0rd',
+      id: '318d0bc7-74ff-4302-b876-466b4813ebe8'
+    }
+  },
+  timestamp: '2020-04-18 11:14:37'
+}
+{
+  status: 500,
+  message: 'Server Error',
+  level: 'error',
+  timestamp: '2020-04-18 11:14:37'
+}
+{
+  level: 'info',
+  message: {
+    method: 'POST',
+    url: '/users',
+    query: {},
+    body: {
+      name: 'TEST_USER',
+      login: 'test_user',
+      password: 'T35t_P@55w0rd'
+    }
+  },
+  timestamp: '2020-04-18 11:14:37'
+}
+{
+  level: 'info',
+  message: {
+    method: 'DELETE',
+    url: '/users/20eb58e0-cd45-4856-ad71-d10738e8fcaf',
+    query: {},
+    body: {}
+  },
+  timestamp: '2020-04-18 11:14:37'
+}
+{
+  status: 500,
+  message: 'Server Error',
+  level: 'error',
+  timestamp: '2020-04-18 11:14:37'
+}
+{
+  level: 'info',
+  message: {
+    method: 'POST',
+    url: '/users',
+    query: {},
+    body: {
+      name: 'TEST_USER',
+      login: 'test_user',
+      password: 'T35t_P@55w0rd'
+    }
+  },
+  timestamp: '2020-04-18 11:14:37'
+}
+{
+  level: 'info',
+  message: {
+    method: 'POST',
+    url: '/boards',
+    query: {},
+    body: {
+      title: 'Autotest board',
+      columns: [ { title: 'Backlog', order: 1 }, { title: 'Sprint', order: 2 } ]
+    }
+  },
+  timestamp: '2020-04-18 11:14:37'
+}
+{
+  level: 'info',
+  message: {
+    method: 'POST',
+    url: '/boards/747fd6c5-0619-4bb9-9380-7f20fe4bc7a2/tasks',
+    query: {},
+    body: {
+      title: 'Task #1',
+      order: 1,
+      description: 'Lorem ipsum',
+      userId: '657cf2b1-6117-4d96-83e1-44f2f7101637',
+      boardId: '747fd6c5-0619-4bb9-9380-7f20fe4bc7a2'
+    }
+  },
+  timestamp: '2020-04-18 11:14:37'
+}
+{
+  level: 'info',
+  message: {
+    method: 'POST',
+    url: '/boards/747fd6c5-0619-4bb9-9380-7f20fe4bc7a2/tasks',
+    query: {},
+    body: {
+      title: 'Task #2',
+      order: 2,
+      description: 'Lorem ipsum',
+      userId: '657cf2b1-6117-4d96-83e1-44f2f7101637',
+      boardId: '747fd6c5-0619-4bb9-9380-7f20fe4bc7a2'
+    }
+  },
+  timestamp: '2020-04-18 11:14:37'
+}
+{
+  level: 'info',
+  message: {
+    method: 'DELETE',
+    url: '/users/657cf2b1-6117-4d96-83e1-44f2f7101637',
+    query: {},
+    body: {}
+  },
+  timestamp: '2020-04-18 11:14:37'
+}
+{
+  status: 500,
+  message: 'Server Error',
+  level: 'error',
+  timestamp: '2020-04-18 11:14:37'
+}
+{
+  level: 'info',
+  message: { method: 'GET', url: '/users', query: {}, body: {} },
+  timestamp: '2020-04-18 11:27:10'
+}
+{
+  level: 'info',
+  message: {
+    method: 'POST',
+    url: '/users',
+    query: {},
+    body: {
+      name: 'TEST_USER',
+      login: 'test_user',
+      password: 'T35t_P@55w0rd'
+    }
+  },
+  timestamp: '2020-04-18 11:27:11'
+}
+{
+  level: 'info',
+  message: {
+    method: 'GET',
+    url: '/users/3974b13c-1b9b-4107-bd3d-fd1a702605b2',
+    query: {},
+    body: {}
+  },
+  timestamp: '2020-04-18 11:27:11'
+}
+{
+  level: 'info',
+  message: {
+    method: 'DELETE',
+    url: '/users/3974b13c-1b9b-4107-bd3d-fd1a702605b2',
+    query: {},
+    body: {}
+  },
+  timestamp: '2020-04-18 11:27:11'
+}
+{
+  status: 500,
+  message: 'Server Error',
+  level: 'error',
+  timestamp: '2020-04-18 11:27:11'
+}
+{
+  level: 'info',
+  message: {
+    method: 'POST',
+    url: '/users',
+    query: {},
+    body: {
+      name: 'TEST_USER',
+      login: 'test_user',
+      password: 'T35t_P@55w0rd'
+    }
+  },
+  timestamp: '2020-04-18 11:27:11'
+}
+{
+  level: 'info',
+  message: {
+    method: 'DELETE',
+    url: '/users/dba32d73-3594-459d-a82d-06b19f21b30d',
+    query: {},
+    body: {}
+  },
+  timestamp: '2020-04-18 11:27:11'
+}
+{
+  status: 500,
+  message: 'Server Error',
+  level: 'error',
+  timestamp: '2020-04-18 11:27:11'
+}
+{
+  level: 'info',
+  message: {
+    method: 'POST',
+    url: '/users',
+    query: {},
+    body: {
+      name: 'TEST_USER',
+      login: 'test_user',
+      password: 'T35t_P@55w0rd'
+    }
+  },
+  timestamp: '2020-04-18 11:27:11'
+}
+{
+  level: 'info',
+  message: {
+    method: 'PUT',
+    url: '/users/fc4e9c24-26ef-4837-ad1c-885b0308594a',
+    query: {},
+    body: {
+      name: 'Autotest updated TEST_USER',
+      login: 'test_user',
+      password: 'T35t_P@55w0rd',
+      id: 'fc4e9c24-26ef-4837-ad1c-885b0308594a'
+    }
+  },
+  timestamp: '2020-04-18 11:27:12'
+}
+{
+  status: 500,
+  message: 'Server Error',
+  level: 'error',
+  timestamp: '2020-04-18 11:27:12'
+}
+{
+  level: 'info',
+  message: {
+    method: 'POST',
+    url: '/users',
+    query: {},
+    body: {
+      name: 'TEST_USER',
+      login: 'test_user',
+      password: 'T35t_P@55w0rd'
+    }
+  },
+  timestamp: '2020-04-18 11:27:12'
+}
+{
+  level: 'info',
+  message: {
+    method: 'DELETE',
+    url: '/users/45be5489-cfb9-4a23-9982-6d555756e4d4',
+    query: {},
+    body: {}
+  },
+  timestamp: '2020-04-18 11:27:12'
+}
+{
+  status: 500,
+  message: 'Server Error',
+  level: 'error',
+  timestamp: '2020-04-18 11:27:12'
+}
+{
+  level: 'info',
+  message: { method: 'GET', url: '/users', query: {}, body: {} },
+  timestamp: '2020-04-18 11:41:41'
+}
+{
+  level: 'info',
+  message: {
+    method: 'POST',
+    url: '/users',
+    query: {},
+    body: {
+      name: 'TEST_USER',
+      login: 'test_user',
+      password: 'T35t_P@55w0rd'
+    }
+  },
+  timestamp: '2020-04-18 11:41:41'
+}
+{
+  level: 'info',
+  message: {
+    method: 'GET',
+    url: '/users/bfc05e19-0985-45c8-9668-3f71dc4d8f55',
+    query: {},
+    body: {}
+  },
+  timestamp: '2020-04-18 11:41:41'
+}
+{
+  level: 'info',
+  message: {
+    method: 'DELETE',
+    url: '/users/bfc05e19-0985-45c8-9668-3f71dc4d8f55',
+    query: {},
+    body: {}
+  },
+  timestamp: '2020-04-18 11:41:41'
+}
+{
+  level: 'info',
+  message: {
+    method: 'POST',
+    url: '/users',
+    query: {},
+    body: {
+      name: 'TEST_USER',
+      login: 'test_user',
+      password: 'T35t_P@55w0rd'
+    }
+  },
+  timestamp: '2020-04-18 11:41:41'
+}
+{
+  level: 'info',
+  message: {
+    method: 'DELETE',
+    url: '/users/1646a853-9b78-4037-998b-2294080b1be4',
+    query: {},
+    body: {}
+  },
+  timestamp: '2020-04-18 11:41:41'
+}
+{
+  level: 'info',
+  message: {
+    method: 'POST',
+    url: '/users',
+    query: {},
+    body: {
+      name: 'TEST_USER',
+      login: 'test_user',
+      password: 'T35t_P@55w0rd'
+    }
+  },
+  timestamp: '2020-04-18 11:41:42'
+}
+{
+  level: 'info',
+  message: {
+    method: 'PUT',
+    url: '/users/22f85c3d-4db7-4e88-ad6a-492d4b7cc38c',
+    query: {},
+    body: {
+      name: 'Autotest updated TEST_USER',
+      login: 'test_user',
+      password: 'T35t_P@55w0rd',
+      id: '22f85c3d-4db7-4e88-ad6a-492d4b7cc38c'
+    }
+  },
+  timestamp: '2020-04-18 11:41:42'
+}
+{
+  level: 'info',
+  message: {
+    method: 'GET',
+    url: '/users/22f85c3d-4db7-4e88-ad6a-492d4b7cc38c',
+    query: {},
+    body: {}
+  },
+  timestamp: '2020-04-18 11:41:42'
+}
+{
+  level: 'info',
+  message: {
+    method: 'DELETE',
+    url: '/users/22f85c3d-4db7-4e88-ad6a-492d4b7cc38c',
+    query: {},
+    body: {}
+  },
+  timestamp: '2020-04-18 11:41:42'
+}
+{
+  level: 'info',
+  message: {
+    method: 'POST',
+    url: '/users',
+    query: {},
+    body: {
+      name: 'TEST_USER',
+      login: 'test_user',
+      password: 'T35t_P@55w0rd'
+    }
+  },
+  timestamp: '2020-04-18 11:41:42'
+}
+{
+  level: 'info',
+  message: {
+    method: 'DELETE',
+    url: '/users/6e651830-6a8c-438f-8249-c6b1d0d5beb1',
+    query: {},
+    body: {}
+  },
+  timestamp: '2020-04-18 11:41:42'
+}
+{
+  level: 'info',
+  message: {
+    method: 'GET',
+    url: '/users',
+    query: {},
+    body: { name: 'alexei', login: '5644', password: '+465443' }
+  },
+  timestamp: '2020-04-19 08:21:45'
+}
+{
+  level: 'info',
+  message: {
+    method: 'GET',
+    url: '/boards',
+    query: {},
+    body: { name: 'alexei', login: '5644', password: '+465443' }
+  },
+  timestamp: '2020-04-19 08:24:28'
+}
+{
+  level: 'info',
+  message: { method: 'GET', url: '/users', query: {}, body: {} },
+  timestamp: '2020-04-19 09:11:42'
+}
+{
+  level: 'info',
+  message: {
+    method: 'POST',
+    url: '/users',
+    query: {},
+    body: {
+      name: 'TEST_USER',
+      login: 'test_user',
+      password: 'T35t_P@55w0rd'
+    }
+  },
+  timestamp: '2020-04-19 09:11:43'
+}
+{
+  level: 'info',
+  message: {
+    method: 'GET',
+    url: '/users/1bed48c4-eb20-4fbe-bedc-dbd7068d50c1',
+    query: {},
+    body: {}
+  },
+  timestamp: '2020-04-19 09:11:43'
+}
+{
+  level: 'info',
+  message: {
+    method: 'DELETE',
+    url: '/users/1bed48c4-eb20-4fbe-bedc-dbd7068d50c1',
+    query: {},
+    body: {}
+  },
+  timestamp: '2020-04-19 09:11:43'
+}
+{
+  level: 'info',
+  message: {
+    method: 'POST',
+    url: '/users',
+    query: {},
+    body: {
+      name: 'TEST_USER',
+      login: 'test_user',
+      password: 'T35t_P@55w0rd'
+    }
+  },
+  timestamp: '2020-04-19 09:11:43'
+}
+{
+  level: 'info',
+  message: {
+    method: 'DELETE',
+    url: '/users/57c165ed-c237-42f2-a6ae-de8dffd4071f',
+    query: {},
+    body: {}
+  },
+  timestamp: '2020-04-19 09:11:43'
+}
+{
+  level: 'info',
+  message: {
+    method: 'POST',
+    url: '/users',
+    query: {},
+    body: {
+      name: 'TEST_USER',
+      login: 'test_user',
+      password: 'T35t_P@55w0rd'
+    }
+  },
+  timestamp: '2020-04-19 09:11:43'
+}
+{
+  level: 'info',
+  message: {
+    method: 'PUT',
+    url: '/users/fb7e2d56-ecbf-41ce-bd95-51cccffabe63',
+    query: {},
+    body: {
+      name: 'Autotest updated TEST_USER',
+      login: 'test_user',
+      password: 'T35t_P@55w0rd',
+      id: 'fb7e2d56-ecbf-41ce-bd95-51cccffabe63'
+    }
+  },
+  timestamp: '2020-04-19 09:11:44'
+}
+{
+  level: 'info',
+  message: {
+    method: 'GET',
+    url: '/users/fb7e2d56-ecbf-41ce-bd95-51cccffabe63',
+    query: {},
+    body: {}
+  },
+  timestamp: '2020-04-19 09:11:44'
+}
+{
+  level: 'info',
+  message: {
+    method: 'DELETE',
+    url: '/users/fb7e2d56-ecbf-41ce-bd95-51cccffabe63',
+    query: {},
+    body: {}
+  },
+  timestamp: '2020-04-19 09:11:44'
+}
+{
+  level: 'info',
+  message: {
+    method: 'POST',
+    url: '/users',
+    query: {},
+    body: {
+      name: 'TEST_USER',
+      login: 'test_user',
+      password: 'T35t_P@55w0rd'
+    }
+  },
+  timestamp: '2020-04-19 09:11:44'
+}
+{
+  level: 'info',
+  message: {
+    method: 'DELETE',
+    url: '/users/f3c8d970-3264-4206-a437-48af99e1a294',
+    query: {},
+    body: {}
+  },
+  timestamp: '2020-04-19 09:11:44'
+}
+{
+  level: 'info',
+  message: {
+    method: 'POST',
+    url: '/boards',
+    query: {},
+    body: {
+      title: 'Autotest board',
+      columns: [ { title: 'Backlog', order: 1 }, { title: 'Sprint', order: 2 } ]
+    }
+  },
+  timestamp: '2020-04-19 09:13:20'
+}
+{
+  level: 'info',
+  message: { method: 'GET', url: '/boards', query: {}, body: {} },
+  timestamp: '2020-04-19 09:13:20'
+}
+{
+  level: 'info',
+  message: { method: 'GET', url: '/boards', query: {}, body: {} },
+  timestamp: '2020-04-19 09:13:20'
+}
+{
+  level: 'info',
+  message: { method: 'GET', url: '/boards/undefined', query: {}, body: {} },
+  timestamp: '2020-04-19 09:13:20'
+}
+{
+  status: 404,
+  message: 'Not Found',
+  level: 'error',
+  timestamp: '2020-04-19 09:13:20'
+}
+{
+  level: 'info',
+  message: {
+    method: 'POST',
+    url: '/boards',
+    query: {},
+    body: {
+      title: 'Autotest board',
+      columns: [ { title: 'Backlog', order: 1 }, { title: 'Sprint', order: 2 } ]
+    }
+  },
+  timestamp: '2020-04-19 09:13:20'
+}
+{
+  level: 'info',
+  message: {
+    method: 'POST',
+    url: '/boards',
+    query: {},
+    body: {
+      title: 'Autotest board',
+      columns: [ { title: 'Backlog', order: 1 }, { title: 'Sprint', order: 2 } ]
+    }
+  },
+  timestamp: '2020-04-19 09:13:21'
+}
+{
+  level: 'info',
+  message: {
+    method: 'PUT',
+    url: '/boards/undefined',
+    query: {},
+    body: {
+      columns: [ { title: 'Backlog', order: 1 }, { title: 'Sprint', order: 2 } ],
+      title: 'Autotest updated board',
+      _id: '04709a1e-ab48-401c-a159-8f052beeb48d'
+    }
+  },
+  timestamp: '2020-04-19 09:13:21'
+}
+{
+  level: 'info',
+  message: { method: 'GET', url: '/boards/undefined', query: {}, body: {} },
+  timestamp: '2020-04-19 09:13:21'
+}
+{
+  status: 404,
+  message: 'Not Found',
+  level: 'error',
+  timestamp: '2020-04-19 09:13:21'
+}
+{
+  level: 'info',
+  message: { method: 'GET', url: '/boards', query: {}, body: {} },
+  timestamp: '2020-04-19 09:13:21'
+}
+{
+  level: 'info',
+  message: { method: 'DELETE', url: '/boards/undefined', query: {}, body: {} },
+  timestamp: '2020-04-19 09:13:21'
+}
+{
+  status: 404,
+  message: 'Not Found',
+  level: 'error',
+  timestamp: '2020-04-19 09:13:21'
+}
+{
+  level: 'info',
+  message: {
+    method: 'POST',
+    url: '/boards',
+    query: {},
+    body: {
+      title: 'Autotest board',
+      columns: [ { title: 'Backlog', order: 1 }, { title: 'Sprint', order: 2 } ]
+    }
+  },
+  timestamp: '2020-04-19 09:13:21'
+}
+{
+  level: 'info',
+  message: {
+    method: 'POST',
+    url: '/boards/undefined/tasks',
+    query: {},
+    body: {
+      title: 'Task #1',
+      order: 1,
+      description: 'Lorem ipsum',
+      userId: null,
+      columnId: null
+    }
+  },
+  timestamp: '2020-04-19 09:13:21'
+}
+{
+  level: 'info',
+  message: {
+    method: 'POST',
+    url: '/boards/undefined/tasks',
+    query: {},
+    body: {
+      title: 'Task #2',
+      order: 2,
+      description: 'Lorem ipsum',
+      userId: null,
+      columnId: null
+    }
+  },
+  timestamp: '2020-04-19 09:13:21'
+}
+{
+  level: 'info',
+  message: {
+    method: 'POST',
+    url: '/boards/undefined/tasks',
+    query: {},
+    body: {
+      title: 'Task #3',
+      order: 3,
+      description: 'Lorem ipsum',
+      userId: null,
+      columnId: null
+    }
+  },
+  timestamp: '2020-04-19 09:13:21'
+}
+{
+  level: 'info',
+  message: {
+    method: 'POST',
+    url: '/boards/undefined/tasks',
+    query: {},
+    body: {
+      title: 'Task #4',
+      order: 4,
+      description: 'Lorem ipsum',
+      userId: null,
+      columnId: null
+    }
+  },
+  timestamp: '2020-04-19 09:13:21'
+}
+{
+  level: 'info',
+  message: {
+    method: 'POST',
+    url: '/boards/undefined/tasks',
+    query: {},
+    body: {
+      title: 'Task #5',
+      order: 5,
+      description: 'Lorem ipsum',
+      userId: null,
+      columnId: null
+    }
+  },
+  timestamp: '2020-04-19 09:13:21'
+}
+{
+  status: 500,
+  message: 'Server Error',
+  level: 'error',
+  timestamp: '2020-04-19 09:13:21'
+}
+{
+  status: 500,
+  message: 'Server Error',
+  level: 'error',
+  timestamp: '2020-04-19 09:13:21'
+}
+{
+  status: 500,
+  message: 'Server Error',
+  level: 'error',
+  timestamp: '2020-04-19 09:13:22'
+}
+{
+  status: 500,
+  message: 'Server Error',
+  level: 'error',
+  timestamp: '2020-04-19 09:13:22'
+}
+{
+  status: 500,
+  message: 'Server Error',
+  level: 'error',
+  timestamp: '2020-04-19 09:13:22'
+}
+{
+  level: 'info',
+  message: {
+    method: 'POST',
+    url: '/boards',
+    query: {},
+    body: {
+      title: 'Autotest board',
+      columns: [ { title: 'Backlog', order: 1 }, { title: 'Sprint', order: 2 } ]
+    }
+  },
+  timestamp: '2020-04-19 09:18:33'
+}
+{
+  level: 'info',
+  message: { method: 'GET', url: '/boards', query: {}, body: {} },
+  timestamp: '2020-04-19 09:18:33'
+}
+{
+  level: 'info',
+  message: { method: 'GET', url: '/boards', query: {}, body: {} },
+  timestamp: '2020-04-19 09:18:34'
+}
+{
+  level: 'info',
+  message: { method: 'GET', url: '/boards/undefined', query: {}, body: {} },
+  timestamp: '2020-04-19 09:18:34'
+}
+{
+  status: 404,
+  message: 'Not Found',
+  level: 'error',
+  timestamp: '2020-04-19 09:18:34'
+}
+{
+  level: 'info',
+  message: {
+    method: 'POST',
+    url: '/boards',
+    query: {},
+    body: {
+      title: 'Autotest board',
+      columns: [ { title: 'Backlog', order: 1 }, { title: 'Sprint', order: 2 } ]
+    }
+  },
+  timestamp: '2020-04-19 09:18:34'
+}
+{
+  level: 'info',
+  message: {
+    method: 'POST',
+    url: '/boards',
+    query: {},
+    body: {
+      title: 'Autotest board',
+      columns: [ { title: 'Backlog', order: 1 }, { title: 'Sprint', order: 2 } ]
+    }
+  },
+  timestamp: '2020-04-19 09:18:34'
+}
+{
+  level: 'info',
+  message: {
+    method: 'PUT',
+    url: '/boards/undefined',
+    query: {},
+    body: {
+      columns: [ { title: 'Backlog', order: 1 }, { title: 'Sprint', order: 2 } ],
+      title: 'Autotest updated board',
+      _id: '7904212a-0273-478b-990a-3e386cae29e4'
+    }
+  },
+  timestamp: '2020-04-19 09:18:34'
+}
+{
+  level: 'info',
+  message: { method: 'GET', url: '/boards/undefined', query: {}, body: {} },
+  timestamp: '2020-04-19 09:18:34'
+}
+{
+  status: 404,
+  message: 'Not Found',
+  level: 'error',
+  timestamp: '2020-04-19 09:18:34'
+}
+{
+  level: 'info',
+  message: { method: 'GET', url: '/boards', query: {}, body: {} },
+  timestamp: '2020-04-19 09:18:34'
+}
+{
+  level: 'info',
+  message: { method: 'DELETE', url: '/boards/undefined', query: {}, body: {} },
+  timestamp: '2020-04-19 09:18:34'
+}
+{
+  status: 404,
+  message: 'Not Found',
+  level: 'error',
+  timestamp: '2020-04-19 09:18:34'
+}
+{
+  level: 'info',
+  message: {
+    method: 'POST',
+    url: '/boards',
+    query: {},
+    body: {
+      title: 'Autotest board',
+      columns: [ { title: 'Backlog', order: 1 }, { title: 'Sprint', order: 2 } ]
+    }
+  },
+  timestamp: '2020-04-19 09:18:35'
+}
+{
+  level: 'info',
+  message: {
+    method: 'POST',
+    url: '/boards/undefined/tasks',
+    query: {},
+    body: {
+      title: 'Task #1',
+      order: 1,
+      description: 'Lorem ipsum',
+      userId: null,
+      columnId: null
+    }
+  },
+  timestamp: '2020-04-19 09:18:35'
+}
+{
+  level: 'info',
+  message: {
+    method: 'POST',
+    url: '/boards/undefined/tasks',
+    query: {},
+    body: {
+      title: 'Task #2',
+      order: 2,
+      description: 'Lorem ipsum',
+      userId: null,
+      columnId: null
+    }
+  },
+  timestamp: '2020-04-19 09:18:35'
+}
+{
+  level: 'info',
+  message: {
+    method: 'POST',
+    url: '/boards/undefined/tasks',
+    query: {},
+    body: {
+      title: 'Task #3',
+      order: 3,
+      description: 'Lorem ipsum',
+      userId: null,
+      columnId: null
+    }
+  },
+  timestamp: '2020-04-19 09:18:35'
+}
+{
+  level: 'info',
+  message: {
+    method: 'POST',
+    url: '/boards/undefined/tasks',
+    query: {},
+    body: {
+      title: 'Task #4',
+      order: 4,
+      description: 'Lorem ipsum',
+      userId: null,
+      columnId: null
+    }
+  },
+  timestamp: '2020-04-19 09:18:35'
+}
+{
+  level: 'info',
+  message: {
+    method: 'POST',
+    url: '/boards/undefined/tasks',
+    query: {},
+    body: {
+      title: 'Task #5',
+      order: 5,
+      description: 'Lorem ipsum',
+      userId: null,
+      columnId: null
+    }
+  },
+  timestamp: '2020-04-19 09:18:35'
+}
+{
+  status: 500,
+  message: 'Server Error',
+  level: 'error',
+  timestamp: '2020-04-19 09:18:35'
+}
+{
+  status: 500,
+  message: 'Server Error',
+  level: 'error',
+  timestamp: '2020-04-19 09:18:35'
+}
+{
+  status: 500,
+  message: 'Server Error',
+  level: 'error',
+  timestamp: '2020-04-19 09:18:35'
+}
+{
+  status: 500,
+  message: 'Server Error',
+  level: 'error',
+  timestamp: '2020-04-19 09:18:35'
+}
+{
+  status: 500,
+  message: 'Server Error',
+  level: 'error',
+  timestamp: '2020-04-19 09:18:35'
+}
+{
+  level: 'info',
+  message: {
+    method: 'GET',
+    url: '/boards',
+    query: {},
+    body: { name: 'alexei', login: '5644', password: '+465443' }
+  },
+  timestamp: '2020-04-19 09:22:31'
+}
+{
+  level: 'info',
+  message: {
+    method: 'GET',
+    url: '/boards/undefined',
+    query: {},
+    body: { name: 'alexei', login: '5644', password: '+465443' }
+  },
+  timestamp: '2020-04-19 09:22:55'
+}
+{
+  status: 404,
+  message: 'Not Found',
+  level: 'error',
+  timestamp: '2020-04-19 09:22:56'
+}
+{
+  level: 'info',
+  message: {
+    method: 'POST',
+    url: '/boards',
+    query: {},
+    body: {
+      title: 'Autotest board',
+      columns: [ { title: 'Backlog', order: 1 }, { title: 'Sprint', order: 2 } ]
+    }
+  },
+  timestamp: '2020-04-19 09:26:31'
+}
+{
+  level: 'info',
+  message: { method: 'GET', url: '/boards', query: {}, body: {} },
+  timestamp: '2020-04-19 09:26:31'
+}
+{
+  level: 'info',
+  message: { method: 'GET', url: '/boards', query: {}, body: {} },
+  timestamp: '2020-04-19 09:26:31'
+}
+{
+  level: 'info',
+  message: { method: 'GET', url: '/boards/undefined', query: {}, body: {} },
+  timestamp: '2020-04-19 09:26:31'
+}
+{
+  status: 404,
+  message: 'Not Found',
+  level: 'error',
+  timestamp: '2020-04-19 09:26:31'
+}
+{
+  level: 'info',
+  message: {
+    method: 'POST',
+    url: '/boards',
+    query: {},
+    body: {
+      title: 'Autotest board',
+      columns: [ { title: 'Backlog', order: 1 }, { title: 'Sprint', order: 2 } ]
+    }
+  },
+  timestamp: '2020-04-19 09:26:31'
+}

@@ -1,12 +1,375 @@
 {
-  status: 404,
-  message: 'Not Found',
+  error: TypeError: users.forEach9 is not a function
+      at NativeConnection.<anonymous> (E:\Node.js\tasks\nodejs-course\src\db\db.client.js:25:11)
+      at Object.onceWrapper (events.js:417:28)
+      at NativeConnection.emit (events.js:311:20)
+      at E:\Node.js\tasks\nodejs-course\node_modules\mongoose\lib\connection.js:819:13
+      at E:\Node.js\tasks\nodejs-course\node_modules\mongodb\lib\utils.js:731:5
+      at E:\Node.js\tasks\nodejs-course\node_modules\mongodb\lib\mongo_client.js:217:7
+      at connectCallback (E:\Node.js\tasks\nodejs-course\node_modules\mongodb\lib\operations\connect.js:350:5)
+      at E:\Node.js\tasks\nodejs-course\node_modules\mongodb\lib\operations\connect.js:586:5
+      at Object.callback (E:\Node.js\tasks\nodejs-course\node_modules\mongodb\lib\core\sdam\topology.js:297:43)
+      at processWaitQueue (E:\Node.js\tasks\nodejs-course\node_modules\mongodb\lib\core\sdam\topology.js:1036:21)
+      at NativeTopology.serverUpdateHandler (E:\Node.js\tasks\nodejs-course\node_modules\mongodb\lib\core\sdam\topology.js:554:7)
+      at Server.emit (events.js:311:20)
+      at Monitor.<anonymous> (E:\Node.js\tasks\nodejs-course\node_modules\mongodb\lib\core\sdam\server.js:147:12)
+      at Monitor.emit (events.js:323:22)
+      at successHandler (E:\Node.js\tasks\nodejs-course\node_modules\mongodb\lib\core\sdam\monitor.js:154:13)
+      at E:\Node.js\tasks\nodejs-course\node_modules\mongodb\lib\core\sdam\monitor.js:196:5,
   level: 'error',
-  timestamp: '2020-04-18 07:56:12'
+  message: 'uncaughtException: users.forEach9 is not a function\n' +
+    'TypeError: users.forEach9 is not a function\n' +
+    '    at NativeConnection.<anonymous> (E:\\Node.js\\tasks\\nodejs-course\\src\\db\\db.client.js:25:11)\n' +
+    '    at Object.onceWrapper (events.js:417:28)\n' +
+    '    at NativeConnection.emit (events.js:311:20)\n' +
+    '    at E:\\Node.js\\tasks\\nodejs-course\\node_modules\\mongoose\\lib\\connection.js:819:13\n' +
+    '    at E:\\Node.js\\tasks\\nodejs-course\\node_modules\\mongodb\\lib\\utils.js:731:5\n' +
+    '    at E:\\Node.js\\tasks\\nodejs-course\\node_modules\\mongodb\\lib\\mongo_client.js:217:7\n' +
+    '    at connectCallback (E:\\Node.js\\tasks\\nodejs-course\\node_modules\\mongodb\\lib\\operations\\connect.js:350:5)\n' +
+    '    at E:\\Node.js\\tasks\\nodejs-course\\node_modules\\mongodb\\lib\\operations\\connect.js:586:5\n' +
+    '    at Object.callback (E:\\Node.js\\tasks\\nodejs-course\\node_modules\\mongodb\\lib\\core\\sdam\\topology.js:297:43)\n' +
+    '    at processWaitQueue (E:\\Node.js\\tasks\\nodejs-course\\node_modules\\mongodb\\lib\\core\\sdam\\topology.js:1036:21)\n' +
+    '    at NativeTopology.serverUpdateHandler (E:\\Node.js\\tasks\\nodejs-course\\node_modules\\mongodb\\lib\\core\\sdam\\topology.js:554:7)\n' +
+    '    at Server.emit (events.js:311:20)\n' +
+    '    at Monitor.<anonymous> (E:\\Node.js\\tasks\\nodejs-course\\node_modules\\mongodb\\lib\\core\\sdam\\server.js:147:12)\n' +
+    '    at Monitor.emit (events.js:323:22)\n' +
+    '    at successHandler (E:\\Node.js\\tasks\\nodejs-course\\node_modules\\mongodb\\lib\\core\\sdam\\monitor.js:154:13)\n' +
+    '    at E:\\Node.js\\tasks\\nodejs-course\\node_modules\\mongodb\\lib\\core\\sdam\\monitor.js:196:5',
+  stack: 'TypeError: users.forEach9 is not a function\n' +
+    '    at NativeConnection.<anonymous> (E:\\Node.js\\tasks\\nodejs-course\\src\\db\\db.client.js:25:11)\n' +
+    '    at Object.onceWrapper (events.js:417:28)\n' +
+    '    at NativeConnection.emit (events.js:311:20)\n' +
+    '    at E:\\Node.js\\tasks\\nodejs-course\\node_modules\\mongoose\\lib\\connection.js:819:13\n' +
+    '    at E:\\Node.js\\tasks\\nodejs-course\\node_modules\\mongodb\\lib\\utils.js:731:5\n' +
+    '    at E:\\Node.js\\tasks\\nodejs-course\\node_modules\\mongodb\\lib\\mongo_client.js:217:7\n' +
+    '    at connectCallback (E:\\Node.js\\tasks\\nodejs-course\\node_modules\\mongodb\\lib\\operations\\connect.js:350:5)\n' +
+    '    at E:\\Node.js\\tasks\\nodejs-course\\node_modules\\mongodb\\lib\\operations\\connect.js:586:5\n' +
+    '    at Object.callback (E:\\Node.js\\tasks\\nodejs-course\\node_modules\\mongodb\\lib\\core\\sdam\\topology.js:297:43)\n' +
+    '    at processWaitQueue (E:\\Node.js\\tasks\\nodejs-course\\node_modules\\mongodb\\lib\\core\\sdam\\topology.js:1036:21)\n' +
+    '    at NativeTopology.serverUpdateHandler (E:\\Node.js\\tasks\\nodejs-course\\node_modules\\mongodb\\lib\\core\\sdam\\topology.js:554:7)\n' +
+    '    at Server.emit (events.js:311:20)\n' +
+    '    at Monitor.<anonymous> (E:\\Node.js\\tasks\\nodejs-course\\node_modules\\mongodb\\lib\\core\\sdam\\server.js:147:12)\n' +
+    '    at Monitor.emit (events.js:323:22)\n' +
+    '    at successHandler (E:\\Node.js\\tasks\\nodejs-course\\node_modules\\mongodb\\lib\\core\\sdam\\monitor.js:154:13)\n' +
+    '    at E:\\Node.js\\tasks\\nodejs-course\\node_modules\\mongodb\\lib\\core\\sdam\\monitor.js:196:5',
+  exception: true,
+  date: 'Sat Apr 18 2020 22:06:10 GMT+0300 (GMT+03:00)',
+  process: {
+    pid: 7072,
+    uid: null,
+    gid: null,
+    cwd: 'E:\\Node.js\\tasks\\nodejs-course',
+    execPath: 'C:\\Program Files\\nodejs\\node.exe',
+    version: 'v12.16.1',
+    argv: [
+      'C:\\Program Files\\nodejs\\node.exe',
+      'E:\\Node.js\\tasks\\nodejs-course\\src\\server.js'
+    ],
+    memoryUsage: {
+      rss: 58904576,
+      heapTotal: 50409472,
+      heapUsed: 16381928,
+      external: 19669812
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 30318 },
+  trace: [
+    {
+      column: 11,
+      file: 'E:\\Node.js\\tasks\\nodejs-course\\src\\db\\db.client.js',
+      function: null,
+      line: 25,
+      method: null,
+      native: false
+    },
+    {
+      column: 28,
+      file: 'events.js',
+      function: 'Object.onceWrapper',
+      line: 417,
+      method: 'onceWrapper',
+      native: false
+    },
+    {
+      column: 20,
+      file: 'events.js',
+      function: 'NativeConnection.emit',
+      line: 311,
+      method: 'emit',
+      native: false
+    },
+    {
+      column: 13,
+      file: 'E:\\Node.js\\tasks\\nodejs-course\\node_modules\\mongoose\\lib\\connection.js',
+      function: null,
+      line: 819,
+      method: null,
+      native: false
+    },
+    {
+      column: 5,
+      file: 'E:\\Node.js\\tasks\\nodejs-course\\node_modules\\mongodb\\lib\\utils.js',
+      function: null,
+      line: 731,
+      method: null,
+      native: false
+    },
+    {
+      column: 7,
+      file: 'E:\\Node.js\\tasks\\nodejs-course\\node_modules\\mongodb\\lib\\mongo_client.js',
+      function: null,
+      line: 217,
+      method: null,
+      native: false
+    },
+    {
+      column: 5,
+      file: 'E:\\Node.js\\tasks\\nodejs-course\\node_modules\\mongodb\\lib\\operations\\connect.js',
+      function: 'connectCallback',
+      line: 350,
+      method: null,
+      native: false
+    },
+    {
+      column: 5,
+      file: 'E:\\Node.js\\tasks\\nodejs-course\\node_modules\\mongodb\\lib\\operations\\connect.js',
+      function: null,
+      line: 586,
+      method: null,
+      native: false
+    },
+    {
+      column: 43,
+      file: 'E:\\Node.js\\tasks\\nodejs-course\\node_modules\\mongodb\\lib\\core\\sdam\\topology.js',
+      function: 'Object.callback',
+      line: 297,
+      method: 'callback',
+      native: false
+    },
+    {
+      column: 21,
+      file: 'E:\\Node.js\\tasks\\nodejs-course\\node_modules\\mongodb\\lib\\core\\sdam\\topology.js',
+      function: 'processWaitQueue',
+      line: 1036,
+      method: null,
+      native: false
+    },
+    {
+      column: 7,
+      file: 'E:\\Node.js\\tasks\\nodejs-course\\node_modules\\mongodb\\lib\\core\\sdam\\topology.js',
+      function: 'NativeTopology.serverUpdateHandler',
+      line: 554,
+      method: 'serverUpdateHandler',
+      native: false
+    },
+    {
+      column: 20,
+      file: 'events.js',
+      function: 'Server.emit',
+      line: 311,
+      method: 'emit',
+      native: false
+    },
+    {
+      column: 12,
+      file: 'E:\\Node.js\\tasks\\nodejs-course\\node_modules\\mongodb\\lib\\core\\sdam\\server.js',
+      function: null,
+      line: 147,
+      method: null,
+      native: false
+    },
+    {
+      column: 22,
+      file: 'events.js',
+      function: 'Monitor.emit',
+      line: 323,
+      method: 'emit',
+      native: false
+    },
+    {
+      column: 13,
+      file: 'E:\\Node.js\\tasks\\nodejs-course\\node_modules\\mongodb\\lib\\core\\sdam\\monitor.js',
+      function: 'successHandler',
+      line: 154,
+      method: null,
+      native: false
+    },
+    {
+      column: 5,
+      file: 'E:\\Node.js\\tasks\\nodejs-course\\node_modules\\mongodb\\lib\\core\\sdam\\monitor.js',
+      function: null,
+      line: 196,
+      method: null,
+      native: false
+    }
+  ],
+  timestamp: '2020-04-18 10:06:10'
+}
+{
+  status: 500,
+  message: 'Server Error',
+  level: 'error',
+  timestamp: '2020-04-18 11:14:36'
+}
+{
+  status: 500,
+  message: 'Server Error',
+  level: 'error',
+  timestamp: '2020-04-18 11:14:36'
+}
+{
+  status: 500,
+  message: 'Server Error',
+  level: 'error',
+  timestamp: '2020-04-18 11:14:36'
+}
+{
+  status: 500,
+  message: 'Server Error',
+  level: 'error',
+  timestamp: '2020-04-18 11:14:37'
+}
+{
+  status: 500,
+  message: 'Server Error',
+  level: 'error',
+  timestamp: '2020-04-18 11:14:37'
+}
+{
+  status: 500,
+  message: 'Server Error',
+  level: 'error',
+  timestamp: '2020-04-18 11:14:37'
+}
+{
+  status: 500,
+  message: 'Server Error',
+  level: 'error',
+  timestamp: '2020-04-18 11:27:11'
+}
+{
+  status: 500,
+  message: 'Server Error',
+  level: 'error',
+  timestamp: '2020-04-18 11:27:11'
+}
+{
+  status: 500,
+  message: 'Server Error',
+  level: 'error',
+  timestamp: '2020-04-18 11:27:12'
+}
+{
+  status: 500,
+  message: 'Server Error',
+  level: 'error',
+  timestamp: '2020-04-18 11:27:12'
 }
 {
   status: 404,
   message: 'Not Found',
   level: 'error',
-  timestamp: '2020-04-18 08:17:01'
+  timestamp: '2020-04-19 09:13:20'
+}
+{
+  status: 404,
+  message: 'Not Found',
+  level: 'error',
+  timestamp: '2020-04-19 09:13:21'
+}
+{
+  status: 404,
+  message: 'Not Found',
+  level: 'error',
+  timestamp: '2020-04-19 09:13:21'
+}
+{
+  status: 500,
+  message: 'Server Error',
+  level: 'error',
+  timestamp: '2020-04-19 09:13:21'
+}
+{
+  status: 500,
+  message: 'Server Error',
+  level: 'error',
+  timestamp: '2020-04-19 09:13:21'
+}
+{
+  status: 500,
+  message: 'Server Error',
+  level: 'error',
+  timestamp: '2020-04-19 09:13:22'
+}
+{
+  status: 500,
+  message: 'Server Error',
+  level: 'error',
+  timestamp: '2020-04-19 09:13:22'
+}
+{
+  status: 500,
+  message: 'Server Error',
+  level: 'error',
+  timestamp: '2020-04-19 09:13:22'
+}
+{
+  status: 404,
+  message: 'Not Found',
+  level: 'error',
+  timestamp: '2020-04-19 09:18:34'
+}
+{
+  status: 404,
+  message: 'Not Found',
+  level: 'error',
+  timestamp: '2020-04-19 09:18:34'
+}
+{
+  status: 404,
+  message: 'Not Found',
+  level: 'error',
+  timestamp: '2020-04-19 09:18:34'
+}
+{
+  status: 500,
+  message: 'Server Error',
+  level: 'error',
+  timestamp: '2020-04-19 09:18:35'
+}
+{
+  status: 500,
+  message: 'Server Error',
+  level: 'error',
+  timestamp: '2020-04-19 09:18:35'
+}
+{
+  status: 500,
+  message: 'Server Error',
+  level: 'error',
+  timestamp: '2020-04-19 09:18:35'
+}
+{
+  status: 500,
+  message: 'Server Error',
+  level: 'error',
+  timestamp: '2020-04-19 09:18:35'
+}
+{
+  status: 500,
+  message: 'Server Error',
+  level: 'error',
+  timestamp: '2020-04-19 09:18:35'
+}
+{
+  status: 404,
+  message: 'Not Found',
+  level: 'error',
+  timestamp: '2020-04-19 09:22:56'
+}
+{
+  status: 404,
+  message: 'Not Found',
+  level: 'error',
+  timestamp: '2020-04-19 09:26:31'
 }

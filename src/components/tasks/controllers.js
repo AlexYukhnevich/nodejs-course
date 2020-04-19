@@ -26,7 +26,15 @@ const getTask = async (req, res, next) => {
 
 const createTask = async (req, res, next) => {
   try {
-    const task = await taskService.create(req.params.boardId, req.body);
+    const { boardId } = req.params;
+    const { title, order, description, userId, columnId } = req.body;
+    const task = await taskService.create(boardId, {
+      title,
+      order,
+      description,
+      userId,
+      columnId
+    });
     res.status(OK).send(Task.sendResponse(task));
   } catch (err) {
     return next(err);
