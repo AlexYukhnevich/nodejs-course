@@ -1,12 +1,12 @@
 const boardRouter = require('express').Router({ mergeParams: true });
-const { validateBoard } = require('../../errorHandlers/middlewares/validation');
+const { validateBoard } = require('../../middlewares/validation.middleware');
 const {
   getBoards,
   getBoard,
   createBoard,
   updateBoard,
   deleteBoard
-} = require('./controllers');
+} = require('./board.controllers');
 
 boardRouter
   .route('/')

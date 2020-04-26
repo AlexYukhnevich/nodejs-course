@@ -1,26 +1,37 @@
-const usersDBRepository = require('./users.db.repository');
+const UsersDBRepository = require('./users.db.repository');
+const TaskService = require('../tasks/task.service');
+const { getHashedEntity } = require('../../helpers/bcrypt.helper');
+const SALT_ROUNDS = 10;
 
 class UserService {
   async getAll() {
-    return await usersDBRepository.getAll();
+    return await UsersDBRepository.getAll();
   }
 
   async get(id) {
-    return await usersDBRepository.get(id);
+    return await UsersDBRepository.get(id);
   }
 
-  async create(data) {
-    return await usersDBRepository.create(data);
+  async create({ name, login, password }) {
+    const hashedPassword = await getHashedEntity(password, SALT_ROUNDS);
+    return await UsersDBRepository.create({
+      name,
+      login,
+      password: hashedPassword
+    });
   }
 
   async update(id, data) {
-    return await usersDBRepository.update(id, data);
+    return await UsersDBRepository.update(id, data);
   }
 
   async delete(id) {
-    return await usersDBRepository.delete(id);
+    const user = await UsersDBRepository.delete(id);
+    if (user) {
+      await TaskService.unassignUser(id);
+    }
+    return user;
   }
 }
 
-const userService = new UserService();
-module.exports = userService;
+module.exports = new UserService();

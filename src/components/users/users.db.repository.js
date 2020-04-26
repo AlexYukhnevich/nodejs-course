@@ -1,5 +1,4 @@
 const User = require('./user.model');
-const TaskDBRepository = require('../tasks/task.db.repository');
 
 class UsersDBRepository {
   static async getAll() {
@@ -8,6 +7,10 @@ class UsersDBRepository {
 
   static async get(id) {
     return await User.findById(id);
+  }
+
+  static async checkUser(login) {
+    return await User.findOne({ login });
   }
 
   static async create(data) {
@@ -19,11 +22,7 @@ class UsersDBRepository {
   }
 
   static async delete(id) {
-    const user = await User.findOneAndDelete(id);
-    if (user) {
-      await TaskDBRepository.unassignUser(id);
-    }
-    return user;
+    return await User.findOneAndDelete(id);
   }
 }
 

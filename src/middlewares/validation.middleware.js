@@ -2,9 +2,11 @@ const {
   NOT_FOUND,
   BAD_REQUEST,
   INTERNAL_SERVER_ERROR,
+  FORBIDDEN,
+  UNAUTHORIZED,
   getStatusText
 } = require('http-status-codes');
-const { ClientError, ServerError } = require('../errors');
+const { ClientError, ServerError } = require('../errors/classes.errors');
 
 const validateUser = (req, res, next) => {
   const { name, login, password } = req.body;
@@ -25,7 +27,7 @@ const validateBoard = (req, res, next) => {
     : next();
 };
 
-const validateRequest = (err, req, res, next) => {
+const errorRequest = (err, req, res, next) => {
   let error;
   switch (err) {
     case NOT_FOUND:
@@ -33,6 +35,12 @@ const validateRequest = (err, req, res, next) => {
       break;
     case BAD_REQUEST:
       error = new ClientError(BAD_REQUEST, getStatusText);
+      break;
+    case UNAUTHORIZED:
+      error = new ClientError(UNAUTHORIZED, getStatusText);
+      break;
+    case FORBIDDEN:
+      error = new ClientError(FORBIDDEN, getStatusText);
       break;
     default:
       error = new ServerError(INTERNAL_SERVER_ERROR, getStatusText);
@@ -45,5 +53,5 @@ module.exports = {
   validateUser,
   validateTask,
   validateBoard,
-  validateRequest
+  errorRequest
 };

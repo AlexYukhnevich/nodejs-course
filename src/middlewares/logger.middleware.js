@@ -1,4 +1,4 @@
-const logger = require('./logger');
+const logger = require('../loggers/logger');
 
 const initialLoggerMiddleware = (req, res, next) => {
   const { method, url, query, body } = req;

@@ -1,12 +1,12 @@
 const taskRouter = require('express').Router({ mergeParams: true });
-const { validateTask } = require('../../errorHandlers/middlewares/validation');
+const { validateTask } = require('../../middlewares/validation.middleware');
 const {
   getTasks,
   getTask,
   createTask,
   updateTask,
   deleteTask
-} = require('./controllers');
+} = require('./task.controllers');
 
 taskRouter
   .route('/')

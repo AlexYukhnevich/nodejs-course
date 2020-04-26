@@ -1,12 +1,12 @@
 const userRouter = require('express').Router();
-const { validateUser } = require('../../errorHandlers/middlewares/validation');
+const { validateUser } = require('../../middlewares/validation.middleware');
 const {
   getUsers,
   getUser,
   createUser,
   deleteUser,
   updateUser
-} = require('./controllers');
+} = require('./user.controllers');
 
 userRouter
   .route('/')

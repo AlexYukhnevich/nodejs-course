@@ -20,6 +20,10 @@ class TaskService {
   async delete(id) {
     return await TaskDBRepository.delete(id);
   }
+
+  async unassignUser(userId) {
+    return await TaskDBRepository.unassignUser(userId);
+  }
 }
 
 const taskService = new TaskService();
