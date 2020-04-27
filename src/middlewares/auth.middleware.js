@@ -1,6 +1,6 @@
 const { UNAUTHORIZED } = require('http-status-codes');
-const parseToken = require('../helpers/token.helper');
-const loginService = require('../components/login/login.service');
+const { parseToken, checkToken } = require('../helpers/jwt.helper');
+const { JWT_SECRET_KEY } = require('../common/config');
 
 const auth = async (req, res, next) => {
   const tokenFromRequest = req.headers.authorization;
@@ -9,7 +9,7 @@ const auth = async (req, res, next) => {
   }
   try {
     const token = parseToken(tokenFromRequest);
-    loginService.checkToken(token);
+    checkToken(token, JWT_SECRET_KEY);
   } catch (err) {
     return next(UNAUTHORIZED);
   }
