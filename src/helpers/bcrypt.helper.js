@@ -1,11 +1,10 @@
-const bcrypt = require('bcrypt');
+const { genSalt, hash, compare } = require('bcrypt');
 
 const getHashedEntity = async (entity, saltRounds) => {
-  const salt = await bcrypt.genSalt(saltRounds);
-  return await bcrypt.hash(entity, salt);
+  const salt = await genSalt(saltRounds);
+  return await hash(entity, salt);
 };
 
-const compareEntities = async (entity, hashed) =>
-  await bcrypt.compare(entity, hashed);
+const compareEntities = async (entity, hashed) => await compare(entity, hashed);
 
 module.exports = { getHashedEntity, compareEntities };

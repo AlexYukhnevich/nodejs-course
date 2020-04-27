@@ -12,6 +12,10 @@ class UserService {
     return await UsersDBRepository.get(id);
   }
 
+  async checkLogin(login) {
+    return await UsersDBRepository.checkLogin(login);
+  }
+
   async create({ name, login, password }) {
     const hashedPassword = await getHashedEntity(password, SALT_ROUNDS);
     return await UsersDBRepository.create({

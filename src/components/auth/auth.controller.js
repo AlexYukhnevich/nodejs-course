@@ -1,9 +1,9 @@
 const { FORBIDDEN } = require('http-status-codes');
-const loginService = require('./login.service');
+const authService = require('./auth.service');
 const catchError = require('../../middlewares/catch-error.middleware');
 
 const checkLogin = catchError(async (req, res, next) => {
-  const token = await loginService.getToken(req.body);
+  const token = await authService.getToken(req.body);
   if (!token) {
     return next(FORBIDDEN);
   }

@@ -1,11 +1,11 @@
-const UsersDBRepository = require('../users/users.db.repository');
+const userService = require('../users/user.service');
 const { compareEntities } = require('../../helpers/bcrypt.helper');
 const { getPayload, signToken } = require('../../helpers/jwt.helper');
 const { JWT_SECRET_KEY } = require('../../common/config');
 
-class LoginService {
+class AuthService {
   async getToken({ login, password }) {
-    const user = await UsersDBRepository.checkUser(login);
+    const user = await userService.checkLogin(login);
     if (user) {
       const passwordResult = await compareEntities(password, user.password);
       if (passwordResult) {
@@ -16,4 +16,4 @@ class LoginService {
   }
 }
 
-module.exports = new LoginService();
+module.exports = new AuthService();

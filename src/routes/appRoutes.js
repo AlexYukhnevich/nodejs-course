@@ -1,12 +1,12 @@
 const router = require('express').Router();
-const loginRouter = require('../components/login/login.router');
+const authRouter = require('../components/auth/auth.router');
 const userRouter = require('../components/users/user.router');
 const boardRouter = require('../components/boards/board.router');
 const taskRouter = require('../components/tasks/task.router');
-const { errorRequest } = require('../middlewares/validation.middleware');
 const auth = require('../middlewares/auth.middleware');
+const { errorRequest } = require('../middlewares/validation.middleware');
 
-router.use('/login', loginRouter);
+router.use('/login', authRouter);
 router.use('/users', auth, userRouter);
 router.use('/boards', auth, boardRouter);
 router.use('/boards/:boardId/tasks', auth, taskRouter);

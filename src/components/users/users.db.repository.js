@@ -9,7 +9,7 @@ class UsersDBRepository {
     return await User.findById(id);
   }
 
-  static async checkUser(login) {
+  static async checkLogin(login) {
     return await User.findOne({ login });
   }
 
